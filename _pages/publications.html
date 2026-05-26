@@ -10,10 +10,211 @@ redirect_from:
 
 {% include base_path %}
 
+<style>
+.pub-section {
+  margin-bottom: 3em;
+}
+
+.pub-section-title {
+  font-size: 1.3em;
+  font-weight: 700;
+  color: #494e52;
+  padding-bottom: 0.45em;
+  border-bottom: 2px solid #dce0e3;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+.pub-entry {
+  padding-bottom: 1.5em;
+  margin-bottom: 1.5em;
+  border-bottom: 1px solid #f0f1f2;
+}
+
+.pub-entry:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.pub-title {
+  font-size: 1em;
+  font-weight: 600;
+  line-height: 1.45;
+  margin: 0 0 0.25em 0;
+}
+
+.pub-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.pub-title a:hover {
+  color: #52adc8;
+  text-decoration: underline;
+}
+
+.pub-meta {
+  font-size: 0.85em;
+  color: #7a8288;
+  margin: 0 0 0.5em 0;
+}
+
+.pub-excerpt {
+  font-size: 0.88em;
+  color: #494e52;
+  line-height: 1.55;
+  margin: 0 0 0.7em 0;
+}
+
+.pub-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  flex-wrap: wrap;
+  margin-top: 0.5em;
+}
+
+.btn-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  padding: 0.3em 0.85em;
+  font-size: 0.78em;
+  font-weight: 600;
+  color: #fff !important;
+  background-color: #52adc8;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  text-decoration: none !important;
+  transition: background-color 0.15s ease;
+  cursor: pointer;
+  line-height: 1.6;
+}
+
+.btn-download:hover {
+  background-color: #3d8fa8;
+}
+
+.btn-cite {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  padding: 0.3em 0.85em;
+  font-size: 0.78em;
+  font-weight: 600;
+  color: #7a8288;
+  background-color: transparent;
+  border: 1px solid #bdc3c7;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+  line-height: 1.6;
+  font-family: inherit;
+}
+
+.btn-cite:hover {
+  background-color: #f5f6f7;
+  border-color: #7a8288;
+  color: #494e52;
+}
+
+.btn-cite.copied {
+  color: #62c462;
+  border-color: #62c462;
+  background-color: #f0faf0;
+}
+</style>
+
 <p class="archive-intro">You can also find my articles on <u><a href="https://scholar.google.com/citations?user=CUGkYf8AAAAJ&hl=en">my Google Scholar profile</a>.</u></p>
 
-<section class="archive-feed" role="list" aria-label="Publications">
-{% for post in site.publications reversed %}
-  {% include archive-single.html archive_feed=true %}
-{% endfor %}
+<section class="pub-section">
+  <h2 class="pub-section-title">Peer-Reviewed</h2>
+  {% assign peer_reviewed = site.publications | sort: "date" | reverse %}
+  {% for post in peer_reviewed %}
+  <div class="pub-entry">
+    <p class="pub-title"><a href="{{ base_path }}{{ post.url }}">{{ post.title }}</a></p>
+    <p class="pub-meta">Published in <em>{{ post.venue }}</em>, {{ post.date | date: "%Y" }}</p>
+    {% if post.excerpt %}
+    <p class="pub-excerpt">{{ post.excerpt }}</p>
+    {% endif %}
+    <div class="pub-actions">
+      {% if post.paperurl %}
+      <a href="{{ post.paperurl }}" class="btn-download" target="_blank" rel="noopener">
+        <i class="fas fa-download"></i> <span class="btn-label">Download</span>
+      </a>
+      {% endif %}
+      {% if post.citation %}
+      <button class="btn-cite" data-citation="{{ post.citation | escape }}" title="Copy citation to clipboard">
+        <i class="fas fa-copy"></i> <span class="btn-label">Cite</span>
+      </button>
+      {% endif %}
+    </div>
+  </div>
+  {% endfor %}
 </section>
+
+<section class="pub-section">
+  <h2 class="pub-section-title">Manuscripts</h2>
+  {% assign manuscript_files = site.static_files | where_exp: "file", "file.name contains 'Murphy___'" | sort: "name" | reverse %}
+  {% for file in manuscript_files %}
+  {% assign parts = file.basename | split: "___" %}
+  {% assign ms_date = parts[1] %}
+  {% assign ms_year = ms_date | slice: 0, 4 %}
+  {% assign ms_title = parts[2] | replace: "_", " " %}
+  {% assign ms_citation = "Murphy MD. " | append: ms_title | append: ". " | append: ms_year | append: ". Unpublished manuscript." %}
+  <div class="pub-entry">
+    <p class="pub-title">{{ ms_title }}</p>
+    <p class="pub-meta">{{ ms_date | date: "%B %Y" }}</p>
+    <div class="pub-actions">
+      <a href="{{ file.path }}" class="btn-download" target="_blank" rel="noopener">
+        <i class="fas fa-download"></i> <span class="btn-label">Download</span>
+      </a>
+      <button class="btn-cite" data-citation="{{ ms_citation | escape }}" title="Copy citation to clipboard">
+        <i class="fas fa-copy"></i> <span class="btn-label">Cite</span>
+      </button>
+    </div>
+  </div>
+  {% endfor %}
+</section>
+
+<script>
+(function () {
+  function onCopied(btn) {
+    var icon = btn.querySelector('i');
+    var label = btn.querySelector('.btn-label');
+    btn.classList.add('copied');
+    icon.className = 'fas fa-check';
+    label.textContent = 'Copied!';
+    setTimeout(function () {
+      btn.classList.remove('copied');
+      icon.className = 'fas fa-copy';
+      label.textContent = 'Cite';
+    }, 1800);
+  }
+
+  function fallbackCopy(text, callback) {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0;pointer-events:none';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); callback(); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  document.querySelectorAll('.btn-cite').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var citation = this.getAttribute('data-citation');
+      var self = this;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(citation)
+          .then(function () { onCopied(self); })
+          .catch(function () { fallbackCopy(citation, function () { onCopied(self); }); });
+      } else {
+        fallbackCopy(citation, function () { onCopied(self); });
+      }
+    });
+  });
+})();
+</script>
