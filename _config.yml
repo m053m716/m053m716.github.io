@@ -197,6 +197,9 @@ collections:
   research:
     output: true
     permalink: /:collection/:path/
+  courses:
+    output: true
+    permalink: /:collection/:path/
   talks:
     output: true
     permalink: /:collection/:path/
@@ -263,6 +266,18 @@ defaults:
       share: true
       comment: false
       comments: false
+  # _courses
+  - scope:
+      path: ""
+      type: courses
+    values:
+      layout: single
+      author_profile: true
+      read_time: false
+      comment: false
+      comments: false
+      share: false
+      related: false
   # _talks
   - scope:
       path: ""

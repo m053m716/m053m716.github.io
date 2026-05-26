@@ -1,7 +1,7 @@
 ---
 permalink: /
 title: "Home"
-date: 2024-06-30
+date: 2026-05-26
 excerpt: "About me."
 author_profile: true
 redirect_from:
@@ -15,7 +15,7 @@ redirect_from:
 <style>
   .navbar {
     background-color: rgba(51, 51, 51, 0.5);
-    overflow: hidden;
+    overflow: visible;
     position: fixed;
     height: 100%;
     transform: translate(100px, 12%);
@@ -51,6 +51,7 @@ redirect_from:
   .navbar ul li a {
     display: flex;
     align-items: center;
+    position: relative;
     color: white;
     text-align: center;
     padding-bottom: 5px;
@@ -86,45 +87,74 @@ redirect_from:
     opacity: 50%;
   }
 
-  #openEphysLinkImage {
-    height: 80px;
+  .navbar ul li a .nav-tooltip {
+    position: absolute;
+    right: calc(100% + 12px);
+    top: 50%;
+    width: 230px;
+    padding: 0.55rem 0.7rem;
+    color: var(--site-text, #fff);
+    background: var(--site-surface, #222);
+    border: 1px solid var(--site-border, #555);
+    border-radius: 8px;
+    box-shadow: var(--site-shadow, 0 8px 24px rgba(0, 0, 0, 0.25));
+    font-size: 0.78rem;
+    line-height: 1.3;
+    text-align: left;
+    white-space: normal;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(8px, -50%);
+    transition: opacity 0.15s ease, transform 0.15s ease;
+  }
+
+  .navbar ul li a:hover .nav-tooltip,
+  .navbar ul li a:focus .nav-tooltip {
+    opacity: 1;
+    transform: translate(0, -50%);
   }
 </style>
 
 <nav class="navbar">
   <ul>
     <li>
-      <a href="https://about.murphylab.net/OE-ephys-course">
-        <img src="https://about.murphylab.net/OE-ephys-course/_static/oe_logo_course.svg" alt="Open-Ephys Course" id="openEphysLinkImage">
-        OE-Course
-      </a>
-    </li>
-    <li>
-      <a href="https://fitts-task.nml.wtf">
+      <a href="https://fitts-task.nml.wtf" title="Fitts target-acquisition tasks for motor throughput experiments.">
         <img src="{{ base_path }}/images/fitts-task-icon.svg" class="nav-icon"
           alt="Fitts Tasks">
         Fitts
+        <span class="nav-tooltip">Target-acquisition tasks for measuring motor throughput and pointing performance.</span>
       </a>
     </li>
     <li>
-      <a href="https://chr.nml.wtf">
+      <a href="https://chr.nml.wtf" title="Click-Hold-Release tasks and gesture calibration utilities.">
         <img src="{{ base_path }}/images/chr-task-icon.svg" class="nav-icon"
           alt="CHR Tasks">
         CHR Tasks
+        <span class="nav-tooltip">Click-Hold-Release tasks, gesture calibration, and study sequencing utilities.</span>
       </a>
     </li>
     <li>
-      <a href="https://tablet.nml.wtf">
+      <a href="https://tablet.nml.wtf" title="TabletHID turns tablet-style input into experiment-friendly controls.">
         <img src="{{ base_path }}/images/tablet-hid-icon.svg" class="nav-icon"
           alt="TabletHID">
         TabletHID
+        <span class="nav-tooltip">Tablet-style HID controls for touch-driven experiment and demo interfaces.</span>
       </a>
     </li>
     <li>
-      <a href="https://sims.nml.wtf">
+      <a href="https://sims.nml.wtf" title="Biophysical simulations for muscles, motor pools, and reflex arcs.">
         <img src="{{ base_path }}/images/sims-icon.svg" class="nav-icon"
           alt="Biophysical Simulations">
         Sims
+        <span class="nav-tooltip">Biophysical simulations linking muscle mechanics, motor pools, and reflex pathways.</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://render.nml.wtf" title="Render neural network schematics and figure panels.">
+        <img src="{{ base_path }}/images/render-icon.svg" class="nav-icon"
+          alt="Network Architecture Renderer">
+        Render
+        <span class="nav-tooltip">Neural network architecture diagrams and exportable figure panels for AI/ML work.</span>
       </a>
     </li>
   </ul>

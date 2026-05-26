@@ -1,0 +1,13 @@
+---
+layout: archive
+title: "Courses"
+permalink: /courses/
+author_profile: true
+---
+
+{% include base_path %}
+
+{% for post in site.courses reversed %}
+  {% include archive-single.html %}
+  <hr style="border-top: 3px dotted #bbb;">
+{% endfor %}

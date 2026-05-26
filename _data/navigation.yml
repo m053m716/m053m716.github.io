@@ -9,6 +9,9 @@ main:
   - title: "Research"
     url: /research/
 
+  - title: "Courses"
+    url: /courses/
+
   - title: "Code"
     url: https://github.com/Neuro-Mechatronics-Interfaces
 
