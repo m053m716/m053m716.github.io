@@ -7,6 +7,11 @@
             "sizes": "64x32",
             "type": "image/ico"
         },
+        {
+            "src": "https://media.githubusercontent.com/media/m053m716/m053m716.github.io/master/assets/favicon/wtf-icon.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
     ],
     "theme_color": "#ffffff",
     "background_color": "#ffffff",
