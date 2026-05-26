@@ -177,31 +177,35 @@ redirect_from:
   </ul>
 </nav>
 
-<h2 class="section-heading section-heading--with-meta">About Me <span class="section-heading__meta">Updated {{ page.date | date: "%B %-d, %Y" }}</span></h2>
-<p>I am a special faculty researcher in the Neuro-Mechatronics Lab at Carnegie Mellon University. I transitioned into
-  that role after my postdoctoral position in the same lab, where my work centered on neurotechnology, mechatronics,
-  and software for studying sensorimotor control.</p>
-<p>Recently, I have been building browser-based behavioral tasks, input-device utilities, and biophysical simulations
-  that connect neural dynamics with embodied interaction. That includes <a href="https://fitts-task.nml.wtf" target="_blank" rel="noopener noreferrer">Fitts</a> and <a href="https://chr.nml.wtf" target="_blank" rel="noopener noreferrer">Click-Hold-Release</a> task batteries to assess HCI quality and reliability,
-  the <a href="https://tablet.nml.wtf" target="_blank" rel="noopener noreferrer">TabletHID</a> app, <a href="https://about.fb.com/news/2026/05/meta-ai-wearables-changing-the-game-for-disabled-people/" target="_blank" rel="noopener noreferrer">wearable accessible EMG</a> workflows, 
-  and both <a href="https://chr.nml.wtf/simulations/" target="_blank" rel="noopener noreferrer">stochastic</a> and <a href="https://sims.nml.wtf" target="_blank" rel="noopener noreferrer">deterministic</a> models to answer questions about the controllability of motor neurons.</p>
-<hr style="border-top: 3px dotted #bbb;width:33%;left:33%">
-<h3>About My Research</h3>
-<span id="badgeCont127">
-  <script type="text/javascript" src="assets/js/publons.js"></script>
-</span>
-<p>For my doctorate, I studied motor recovery from stroke in a <bf><a
-      href="https://m053m716.github.io/files/Whishaw-and-Pellis_1990_Structure-of-rat-reaching.pdf">rat reaching
-      model</a></bf> in the lab of <bf><a
-      href="https://scholar.google.com/citations?user=TlPPA0UAAAAJ&hl=en&oi=sra">Randy Nudo</a></bf> at the <bf><a
-      href="https://bioengr.ku.edu/">University of Kansas Medical Center</a></bf>. My doctoral <bf><a
-      href="https://pqdtopen.proquest.com/pubnum/28262386.html">thesis</a></bf> looks at how the <bf><a
-      href="(https://www.nature.com/articles/nature11129">neural population dynamics</a></bf> change as the rat improves
-  at pellet retrievals.</p>
-<p>At the <a href="https://www.meche.engineering.cmu.edu/faculty/neuromechatronics-lab.html">Neuro-Mechatronics Lab at
-    Carnegie Mellon</a>, I help build tools for experiments, models, and accessible interfaces, including
-  <a href="https://code.nml.wtf">research software</a>, <a href="https://nml-wiki.org/">behavioral models</a>, and
-  task platforms for human-computer interaction and rehabilitation research.</p>
+<article class="about-card is-expandable" data-collapsed-height="220" tabindex="0" aria-labelledby="about-title">
+  <div id="about-body" class="about-card__body">
+    <h2 id="about-title" class="section-heading section-heading--with-meta">About Me <span class="section-heading__meta">Updated {{ page.date | date: "%B %-d, %Y" }}</span></h2>
+    <p>I am a special faculty researcher in the <a href="https://www.meche.engineering.cmu.edu/faculty/neuromechatronics-lab.html">Neuro-Mechatronics Lab at
+        Carnegie Mellon</a>. I transitioned into that role after my postdoctoral position in the same lab.
+        My work centers on deploying intuitive interfaces, with the goal of making complicated interactions less difficult.</p>
+    <hr style="border-top: 3px dotted #bbb;width:33%;left:33%">
+    <h3>About My Research</h3>
+    <span id="badgeCont127">
+      <script type="text/javascript" src="assets/js/publons.js"></script>
+    </span>
+    <p>Recently, I have been building browser-based behavioral tasks, input-device utilities, and biophysical simulations
+      that connect neural dynamics with embodied interaction. That includes <a href="https://fitts-task.nml.wtf" target="_blank" rel="noopener noreferrer">Fitts</a> and <a href="https://chr.nml.wtf" target="_blank" rel="noopener noreferrer">Click-Hold-Release</a> task batteries to assess HCI quality and reliability,
+      the <a href="https://tablet.nml.wtf" target="_blank" rel="noopener noreferrer">TabletHID</a> app, <a href="https://about.fb.com/news/2026/05/meta-ai-wearables-changing-the-game-for-disabled-people/" target="_blank" rel="noopener noreferrer">wearable accessible EMG</a> workflows,
+      and both <a href="https://chr.nml.wtf/simulations/" target="_blank" rel="noopener noreferrer">stochastic</a> and <a href="https://sims.nml.wtf" target="_blank" rel="noopener noreferrer">deterministic</a> models to answer questions about the controllability of motor neurons.</p>
+
+    <p>For my doctorate, I studied motor recovery from stroke in a <bf><a
+          href="https://m053m716.github.io/files/Whishaw-and-Pellis_1990_Structure-of-rat-reaching.pdf">rat reaching
+          model</a></bf> in the lab of <bf><a
+          href="https://scholar.google.com/citations?user=TlPPA0UAAAAJ&hl=en&oi=sra">Randy Nudo</a></bf> at the <bf><a
+          href="https://bioengr.ku.edu/">University of Kansas Medical Center</a></bf>. My doctoral <bf><a
+          href="https://pqdtopen.proquest.com/pubnum/28262386.html">thesis</a></bf> looks at how the <bf><a
+          href="(https://www.nature.com/articles/nature11129">neural population dynamics</a></bf> change as the rat improves
+      at pellet retrievals.</p>
+  </div>
+  <button class="about-card__expand" type="button" aria-expanded="false" aria-controls="about-body" aria-label="Expand About Me">
+    <span aria-hidden="true">+</span>
+  </button>
+</article>
 
 <hr style="border-top: 2px solid #222;width: 80%;left: 10%;top:10px">
 <h2>News</h2>

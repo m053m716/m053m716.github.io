@@ -60,11 +60,58 @@ document.addEventListener("DOMContentLoaded", function () {
             // Ignore malformed links and let the browser handle them normally.
         }
     });
-    document.querySelectorAll(".news-card").forEach(function (card) {
-        var body = card.querySelector(".news-card__body");
-        var button = card.querySelector(".news-card__expand");
+    document.querySelectorAll(".about-card, .news-card").forEach(function (card) {
+        var body = card.querySelector(".about-card__body, .news-card__body");
+        var button = card.querySelector(".about-card__expand, .news-card__expand");
         if (!body || !button) {
             return;
+        }
+
+        function getCardTitle() {
+            var title = card.querySelector(".news-card__title, #about-title");
+            return title ? title.textContent.trim() : "card";
+        }
+
+        function getCollapsedHeight() {
+            var explicitHeight = parseFloat(card.getAttribute("data-collapsed-height"));
+            if (!Number.isNaN(explicitHeight)) {
+                return explicitHeight;
+            }
+            var maxHeight = parseFloat(window.getComputedStyle(body).maxHeight);
+            return Number.isNaN(maxHeight) ? body.clientHeight : maxHeight;
+        }
+
+        function animateBodyHeight(toHeight, done) {
+            if (body._heightAnimation) {
+                cancelAnimationFrame(body._heightAnimation);
+            }
+
+            var current = body.getBoundingClientRect().height;
+            var start = performance.now();
+            var maxDuration = 280;
+            body.style.overflow = "hidden";
+            body.style.maxHeight = current + "px";
+
+            function step(now) {
+                current += (toHeight - current) * 0.28;
+                if (Math.abs(toHeight - current) < 0.75 || now - start > maxDuration) {
+                    body.style.maxHeight = toHeight + "px";
+                    body._heightAnimation = null;
+                    done();
+                    return;
+                }
+                body.style.maxHeight = current + "px";
+                body._heightAnimation = requestAnimationFrame(step);
+            }
+
+            body._heightAnimation = requestAnimationFrame(step);
+        }
+
+        function setExpanded(expanded) {
+            var label = getCardTitle();
+            button.setAttribute("aria-expanded", expanded ? "true" : "false");
+            button.setAttribute("aria-label", (expanded ? "Collapse " : "Expand ") + label);
+            button.querySelector("span").textContent = expanded ? "-" : "+";
         }
 
         function updateExpandableState() {
@@ -72,19 +119,43 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
             card.classList.add("is-expandable");
-            var isOverflowing = body.scrollHeight > body.clientHeight + 4;
+            body.style.maxHeight = "";
+            var collapsedHeight = getCollapsedHeight();
+            var isOverflowing = body.scrollHeight > collapsedHeight + 4;
             card.classList.toggle("is-expandable", isOverflowing);
             button.hidden = !isOverflowing;
+            if (isOverflowing) {
+                body.style.maxHeight = collapsedHeight + "px";
+                body.style.overflow = "hidden";
+            } else {
+                body.style.maxHeight = "";
+                body.style.overflow = "";
+            }
+            setExpanded(false);
         }
 
         button.addEventListener("click", function () {
             var expanded = !card.classList.contains("is-expanded");
-            card.classList.toggle("is-expanded", expanded);
-            button.setAttribute("aria-expanded", expanded ? "true" : "false");
-            button.setAttribute("aria-label", (expanded ? "Collapse " : "Expand ") + card.querySelector(".news-card__title").textContent);
-            button.querySelector("span").textContent = expanded ? "-" : "+";
+            var collapsedHeight = getCollapsedHeight();
+            var targetHeight;
             if (expanded) {
-                card.scrollIntoView({ block: "nearest", behavior: "smooth" });
+                card.classList.add("is-expanded");
+                setExpanded(true);
+                targetHeight = body.scrollHeight;
+                animateBodyHeight(targetHeight, function () {
+                    body.style.maxHeight = "none";
+                    body.style.overflow = "visible";
+                    card.scrollIntoView({ block: "nearest", behavior: "smooth" });
+                });
+            } else {
+                body.style.maxHeight = body.scrollHeight + "px";
+                body.style.overflow = "hidden";
+                setExpanded(false);
+                animateBodyHeight(collapsedHeight, function () {
+                    card.classList.remove("is-expanded");
+                    body.style.maxHeight = collapsedHeight + "px";
+                    body.style.overflow = "hidden";
+                });
             }
         });
 
