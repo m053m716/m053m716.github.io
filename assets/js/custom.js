@@ -45,6 +45,21 @@ document.addEventListener("DOMContentLoaded", function () {
     var currentTheme = document.documentElement.getAttribute("data-theme") || "dark";
     updateThemeColor(currentTheme);
     updateThemeToggle(currentTheme);
+    document.querySelectorAll("a[href]").forEach(function (link) {
+        var href = link.getAttribute("href");
+        if (!href || href.indexOf("http") !== 0) {
+            return;
+        }
+        try {
+            var url = new URL(href, window.location.href);
+            if (url.origin !== window.location.origin) {
+                link.setAttribute("target", "_blank");
+                link.setAttribute("rel", "noopener noreferrer");
+            }
+        } catch (error) {
+            // Ignore malformed links and let the browser handle them normally.
+        }
+    });
     var toggle = document.querySelector(".theme-toggle");
     if (toggle) {
         toggle.addEventListener("click", function () {

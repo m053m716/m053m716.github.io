@@ -102,6 +102,14 @@
       color: var(--site-link-hover);
     }
 
+    .masthead__menu-item--active > a {
+      color: var(--site-link-hover);
+      background: var(--site-surface);
+      border: 1px solid var(--site-border);
+      border-bottom-color: var(--site-surface);
+      border-radius: 8px 8px 0 0;
+    }
+
     .greedy-nav > button {
       background-color: var(--site-surface-strong);
       color: var(--site-text);
@@ -175,6 +183,108 @@
       box-shadow: var(--site-shadow);
     }
 
+    .page__header-tab {
+      display: flex;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin: -1.25rem -1.25rem 1.5rem;
+      padding: 0.85rem 1rem 0;
+      background: color-mix(in srgb, var(--site-bg-soft) 72%, transparent);
+      border-bottom: 1px solid var(--site-border);
+      border-radius: 10px 10px 0 0;
+    }
+
+    .archive > .page__header-tab {
+      margin: 0 0 1.5rem;
+      padding: 0.85rem 0 0;
+      background: transparent;
+      border-radius: 0;
+    }
+
+    .page__header-tab .page__title {
+      display: inline-flex;
+      align-items: center;
+      min-height: 2.35rem;
+      margin: 0;
+      padding: 0.48rem 0.9rem;
+      color: var(--site-link-hover);
+      background: var(--site-surface);
+      border: 1px solid var(--site-border);
+      border-bottom-color: var(--site-surface);
+      border-radius: 8px 8px 0 0;
+      font-size: 1.32rem;
+      line-height: 1.2;
+      transform: translateY(1px);
+    }
+
+    .page__header-meta {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex: 1 1 16rem;
+      flex-wrap: wrap;
+      gap: 0.45rem 0.9rem;
+      padding-bottom: 0.58rem;
+      color: var(--site-text-muted);
+      font-size: 0.78rem;
+      line-height: 1.35;
+    }
+
+    .page__header-meta:empty {
+      display: none;
+    }
+
+    .page__header-meta p,
+    .page__header-tab .page__date,
+    .page__header-tab .page__meta {
+      margin: 0;
+      color: var(--site-text-muted);
+      font-size: 0.78rem;
+    }
+
+    .section-heading--with-meta {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.35rem 0.75rem;
+    }
+
+    .section-heading__meta {
+      color: var(--site-text-muted);
+      font-size: 0.78rem;
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
+    .page,
+    .page__lead,
+    .page__content,
+    .page__content p,
+    .page__content li,
+    .page__content dl,
+    .page__content dt,
+    .page__content dd,
+    .page__content span,
+    .page__content strong,
+    .page__content em,
+    .page__content blockquote,
+    .archive,
+    .archive__item,
+    .archive__item-title,
+    .archive__item-excerpt,
+    .archive__subtitle,
+    .archive__subtitle__collections,
+    .page__related,
+    .page__related-title,
+    .breadcrumbs,
+    .breadcrumbs a,
+    .toc,
+    .toc .nav__title,
+    .toc__menu a {
+      color: var(--site-text);
+    }
+
     .page__title,
     .page__content h1,
     .page__content h2,
@@ -188,11 +298,144 @@
       border-bottom-color: var(--site-border);
     }
 
+    .page__content blockquote {
+      border-left-color: var(--site-accent);
+      color: var(--site-text-muted);
+    }
+
     .page__date,
     .page__meta,
     .author__bio,
     figcaption {
       color: var(--site-text-muted);
+    }
+
+    figcaption a:hover,
+    .toc__menu a:hover {
+      color: var(--site-link-hover);
+    }
+
+    .page__content code,
+    p > code,
+    a > code,
+    li > code,
+    figcaption > code,
+    td > code,
+    pre,
+    div.highlighter-rouge,
+    figure.highlight {
+      color: var(--site-text);
+      background: var(--site-surface-strong);
+      border-color: var(--site-border);
+    }
+
+    div.highlighter-rouge:before,
+    figure.highlight:before {
+      color: var(--site-text-muted);
+      background: var(--site-surface);
+      border-left: 1px solid var(--site-border);
+      border-bottom: 1px solid var(--site-border);
+    }
+
+    .highlight,
+    .highlight pre,
+    .highlight table,
+    .highlight table td {
+      color: var(--site-text);
+      background: transparent;
+    }
+
+    html[data-theme="dark"] .highlight * {
+      color: var(--site-text) !important;
+    }
+
+    table,
+    th,
+    td {
+      color: var(--site-text);
+      border-color: var(--site-border);
+    }
+
+    thead,
+    th {
+      background: var(--site-surface-strong);
+    }
+
+    .page__taxonomy-item,
+    .pagination li a,
+    .pagination--pager {
+      color: var(--site-text);
+      background: var(--site-surface);
+      border-color: var(--site-border);
+    }
+
+    .page__taxonomy-item:hover,
+    .pagination li a:hover,
+    .pagination--pager:hover {
+      color: var(--site-link-hover);
+      background: var(--site-surface-strong);
+    }
+
+    .pagination .disabled,
+    .pagination--pager.disabled {
+      color: var(--site-text-muted);
+      background: transparent;
+    }
+
+    .toc {
+      background: var(--site-surface);
+      border-color: var(--site-border);
+      box-shadow: var(--site-shadow);
+    }
+
+    .toc .nav__title {
+      background: var(--site-surface-strong);
+      border-bottom: 1px solid var(--site-border);
+    }
+
+    .toc__menu a {
+      border-bottom-color: var(--site-border);
+    }
+
+    .toc__menu a:hover {
+      background: var(--site-surface-strong);
+    }
+
+    .notice,
+    .notice--primary,
+    .notice--info,
+    .notice--warning,
+    .notice--success,
+    .notice--danger {
+      color: var(--site-text);
+      background: var(--site-surface-strong);
+      border: 1px solid var(--site-border);
+      box-shadow: none;
+    }
+
+    .notice a,
+    .notice--primary a,
+    .notice--info a,
+    .notice--warning a,
+    .notice--success a,
+    .notice--danger a {
+      color: var(--site-link);
+    }
+
+    .notice a:hover,
+    .notice--primary a:hover,
+    .notice--info a:hover,
+    .notice--warning a:hover,
+    .notice--success a:hover,
+    .notice--danger a:hover {
+      color: var(--site-link-hover);
+    }
+
+    .page__footer,
+    .page__footer footer {
+      color: var(--site-text-muted);
+      background: var(--site-bg);
+      border-top-color: var(--site-border);
     }
 
     .author__bio--tagline {
@@ -209,6 +452,11 @@
       background: var(--site-surface);
       border-color: var(--site-border);
       box-shadow: var(--site-shadow);
+    }
+
+    .author__urls .fa,
+    .social-icons .fa {
+      color: var(--site-text);
     }
 
     .author__avatar img {
@@ -322,6 +570,24 @@
     @media (max-width: 768px) {
       .page .page__inner-wrap {
         padding: 1rem;
+      }
+
+      .page__header-tab {
+        margin: -1rem -1rem 1.25rem;
+        padding: 0.75rem 0.75rem 0;
+      }
+
+      .archive > .page__header-tab {
+        margin: 0 0 1.25rem;
+      }
+
+      .page__header-tab .page__title {
+        font-size: 1.12rem;
+      }
+
+      .page__header-meta {
+        justify-content: flex-start;
+        flex-basis: 100%;
       }
 
       .navbar {
