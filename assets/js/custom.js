@@ -67,6 +67,11 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
+        var videoPreview = body.querySelector(".news-video-embed video, .news-video-embed iframe, .news-video-embed");
+        if (videoPreview) {
+            card.classList.add("has-video-preview");
+        }
+
         function getCardTitle() {
             var title = card.querySelector(".news-card__title, #about-title");
             return title ? title.textContent.trim() : "card";
@@ -77,8 +82,26 @@ document.addEventListener("DOMContentLoaded", function () {
             if (!Number.isNaN(explicitHeight)) {
                 return explicitHeight;
             }
+            if (videoPreview) {
+                var bodyRect = body.getBoundingClientRect();
+                var videoRect = videoPreview.getBoundingClientRect();
+                var videoTop = Math.max(0, videoRect.top - bodyRect.top);
+                var targetVideoHeight = videoRect.height || Math.min(body.clientWidth * 0.56, 420);
+                return Math.min(videoTop + targetVideoHeight + 26, Math.max(window.innerHeight * 0.68, 360));
+            }
             var maxHeight = parseFloat(window.getComputedStyle(body).maxHeight);
             return Number.isNaN(maxHeight) ? body.clientHeight : maxHeight;
+        }
+
+        function focusCollapsedPreview() {
+            if (!videoPreview || card.classList.contains("is-expanded")) {
+                body.scrollTop = 0;
+                return;
+            }
+            var bodyRect = body.getBoundingClientRect();
+            var videoRect = videoPreview.getBoundingClientRect();
+            var desiredTop = Math.max(0, videoRect.top - bodyRect.top - 8);
+            body.scrollTop = desiredTop;
         }
 
         function animateBodyHeight(toHeight, done) {
@@ -127,6 +150,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (isOverflowing) {
                 body.style.maxHeight = collapsedHeight + "px";
                 body.style.overflow = "hidden";
+                focusCollapsedPreview();
             } else {
                 body.style.maxHeight = "";
                 body.style.overflow = "";
@@ -155,6 +179,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     card.classList.remove("is-expanded");
                     body.style.maxHeight = collapsedHeight + "px";
                     body.style.overflow = "hidden";
+                    focusCollapsedPreview();
                 });
             }
         });
