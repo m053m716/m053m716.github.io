@@ -165,9 +165,9 @@ redirect_from:
   that role after my postdoctoral position in the same lab, where my work centered on neurotechnology, mechatronics,
   and software for studying sensorimotor control.</p>
 <p>Recently, I have been building browser-based behavioral tasks, input-device utilities, and biophysical simulations
-  that connect neural dynamics with embodied interaction. That includes Fitts and Click-Hold-Release task batteries,
-  TabletHID-style interfaces, EMG and wearable-control workflows, and models that link muscle mechanics, motor neuron
-  pools, and proprioceptive feedback.</p>
+  that connect neural dynamics with embodied interaction. That includes <a href="https://fitts-task.nml.wtf" target="_blank" rel="noopener noreferrer">Fitts</a> and <a href="https://chr.nml.wtf" target="_blank" rel="noopener noreferrer">Click-Hold-Release</a> task batteries,
+  the <a href="https://tablet.nml.wtf" target="_blank" rel="noopener noreferrer">TabletHID</a> app, <a href="https://about.fb.com/news/2026/05/meta-ai-wearables-changing-the-game-for-disabled-people/" target="_blank" rel="noopener noreferrer">wearable accessible EMG</a> workflows, 
+  and both <a href="https://chr.nml.wtf/simulations/" target="_blank" rel="noopener noreferrer">stochastic</a> and <a href="https://sims.nml.wtf" target="_blank" rel="noopener noreferrer">deterministic</a> models to answer questions about the controllability of motor neurons.</p>
 <hr style="border-top: 3px dotted #bbb;width:33%;left:33%">
 <h3>About My Research</h3>
 <span id="badgeCont127">
@@ -190,34 +190,26 @@ redirect_from:
 <h2>News</h2>
 <!-- {% include base_path %} -->
 
+<section class="news-feed" aria-label="News posts">
 {% capture written_year %}'None'{% endcapture %}
 {% for post in site.news reversed %}
 {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
 {% if year != written_year %}
 {% capture written_year %}{{ year }}{% endcapture %}
 {% endif %}
-<div class="news-item" data-aos="fade-up">
-  <h3>{{ post.date | date: "%B %d, %Y" }}: {{ post.title }}</h3>
-  <p>{{ post.content }}</p>
-</div>
-<hr style="border-top: 3px dotted #bbb;width:50%;left:25%">
+<article id="news-{{ post.date | date: '%Y-%m-%d' }}-{{ post.title | slugify }}" class="news-card" data-aos="fade-up" data-scroll-section="news" data-scroll-index="{{ forloop.index }}" tabindex="0" aria-labelledby="news-title-{{ forloop.index }}" itemscope itemtype="https://schema.org/BlogPosting">
+  <header class="news-card__header">
+    <time class="news-card__date" datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%B %-d, %Y" }}</time>
+    <h3 id="news-title-{{ forloop.index }}" class="news-card__title" itemprop="headline">{{ post.title }}</h3>
+  </header>
+  <div id="news-body-{{ forloop.index }}" class="news-card__body" itemprop="articleBody">
+    {{ post.content }}
+  </div>
+  <button class="news-card__expand" type="button" aria-expanded="false" aria-controls="news-body-{{ forloop.index }}" aria-label="Expand {{ post.title }}">
+    <span aria-hidden="true">+</span>
+  </button>
+</article>
 {% endfor %}
+</section>
 
 <hr style="border-bottom: 2px solid #222;width: 80%;left: 10%;top:10px">
-<h2>Calendars</h2>
-<div class="tab">
-  <button class="tablinks" onclick="openTab(event, 'Work')">Work</button>
-  <button class="tablinks" onclick="openTab(event, 'Personal')">Personal</button>
-</div>
-
-<div id="Work" class="tabcontent" height="600" width="800">
-  <iframe
-    src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23039BE5&amp;ctz=America%2FNew_York&amp;src=bWRtdXJwaHlAYW5kcmV3LmNtdS5lZHU&amp;src=Y182M2ltYXNyczlzNXFycm8xN2djZ2d0ODc3Y0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;src=Y19ucXIzczhraWtqbXFlY3Nvb25jMzFnMHZnY0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;color=%23009688&amp;color=%23616161&amp;color=%230B8043&amp;showTitle=0&amp;showPrint=0"
-    style="border:solid 1px #777" width="750" height="500" frameborder="0" scrolling="no"></iframe>
-</div>
-
-<div id="Personal" class="tabcontent" height="600" width="800">
-  <iframe id="PersonalCal"
-    src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=America%2FKentucky%2FLouisville&amp;src=bWF4Lm11cnBoeTExQGdtYWlsLmNvbQ&amp;color=%23EF6C00&amp;showPrint=0&amp;showCalendars=0&amp;title=Personal%20Calendar"
-    style="border-width:0" width="750" height="500" frameborder="0" scrolling="no"></iframe>
-</div>

@@ -60,6 +60,38 @@ document.addEventListener("DOMContentLoaded", function () {
             // Ignore malformed links and let the browser handle them normally.
         }
     });
+    document.querySelectorAll(".news-card").forEach(function (card) {
+        var body = card.querySelector(".news-card__body");
+        var button = card.querySelector(".news-card__expand");
+        if (!body || !button) {
+            return;
+        }
+
+        function updateExpandableState() {
+            if (card.classList.contains("is-expanded")) {
+                return;
+            }
+            card.classList.add("is-expandable");
+            var isOverflowing = body.scrollHeight > body.clientHeight + 4;
+            card.classList.toggle("is-expandable", isOverflowing);
+            button.hidden = !isOverflowing;
+        }
+
+        button.addEventListener("click", function () {
+            var expanded = !card.classList.contains("is-expanded");
+            card.classList.toggle("is-expanded", expanded);
+            button.setAttribute("aria-expanded", expanded ? "true" : "false");
+            button.setAttribute("aria-label", (expanded ? "Collapse " : "Expand ") + card.querySelector(".news-card__title").textContent);
+            button.querySelector("span").textContent = expanded ? "-" : "+";
+            if (expanded) {
+                card.scrollIntoView({ block: "nearest", behavior: "smooth" });
+            }
+        });
+
+        updateExpandableState();
+        window.addEventListener("load", updateExpandableState);
+        window.addEventListener("resize", updateExpandableState);
+    });
     var toggle = document.querySelector(".theme-toggle");
     if (toggle) {
         toggle.addEventListener("click", function () {
