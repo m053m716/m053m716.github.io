@@ -163,20 +163,26 @@ document.addEventListener("DOMContentLoaded", function () {
             var collapsedHeight = getCollapsedHeight();
             var targetHeight;
             if (expanded) {
-                card.classList.add("is-expanded");
                 setExpanded(true);
+                body.style.overflow = "hidden";
+                body.style.maxHeight = body.getBoundingClientRect().height + "px";
                 targetHeight = body.scrollHeight;
                 animateBodyHeight(targetHeight, function () {
+                    card.classList.add("is-expanded");
                     body.style.maxHeight = "none";
                     body.style.overflow = "visible";
+                    body.style.webkitMaskImage = "none";
+                    body.style.maskImage = "none";
                     card.scrollIntoView({ block: "nearest", behavior: "smooth" });
                 });
             } else {
+                card.classList.remove("is-expanded");
+                body.style.webkitMaskImage = "";
+                body.style.maskImage = "";
                 body.style.maxHeight = body.scrollHeight + "px";
                 body.style.overflow = "hidden";
                 setExpanded(false);
                 animateBodyHeight(collapsedHeight, function () {
-                    card.classList.remove("is-expanded");
                     body.style.maxHeight = collapsedHeight + "px";
                     body.style.overflow = "hidden";
                     focusCollapsedPreview();
