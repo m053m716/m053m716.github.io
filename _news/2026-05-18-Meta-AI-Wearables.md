@@ -12,9 +12,9 @@ tags:
 ---
 
 ### Featured on Meta's AI Wearables Blog ###
-Very excited to share that our Carnegie Mellon University collaboration was featured in Meta's blog post, **[Our AI Wearables Are "Changing the Game" for Disabled People](https://about.fb.com/news/2026/05/meta-ai-wearables-changing-the-game-for-disabled-people/)**.
+Very excited to share that our Carnegie Mellon University collaboration was featured in **[Meta's recent blog post](https://about.fb.com/news/2026/05/meta-ai-wearables-changing-the-game-for-disabled-people/)**, in preparation for Global Accessibility Awareness Day!
 
-The post includes a section on using EMG from the Meta Neural Band to support new digital control options for people with spinal cord injury. In the featured video, Cass uses two neural bands to compete in a multiplayer racing game, steering and boosting through hand gestures captured from forearm muscle activity.
+The post includes a section on using EMG from the Meta Neural Band to support new digital control options for people with spinal cord injury. In the featured video, Cas uses two neural bands to compete in a multiplayer racing game, steering and boosting through hand gestures captured from forearm muscle activity.
 
 <div class="news-video-embed">
   <video controls preload="metadata" style="width: 100%; height: auto;">

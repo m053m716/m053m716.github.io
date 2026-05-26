@@ -12,8 +12,8 @@ main:
   - title: "Courses"
     url: /courses/
 
-  - title: "Code"
-    url: https://github.com/Neuro-Mechatronics-Interfaces
-
   - title: "CV"
     url: /cv/
+
+  - title: "Code"
+    url: https://github.com/Neuro-Mechatronics-Interfaces

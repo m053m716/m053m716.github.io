@@ -16,7 +16,7 @@ baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "m053m716/m053m716.github.io"
 search                   : false
 search_provider          :
-favicon                  : "https://about.murphylab.net/assets/favicon/favicon.ico"
+favicon                  : "https://about.murphylab.net/assets/favicon/wtf-icon.png"
 logo                     : "/images/nigeLab_Logo.PNG"
 teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
 breadcrumbs              : false # true, false (default)
@@ -206,9 +206,6 @@ collections:
   posts:
     output: true
     permalink: /:collection/:path/
-  scripts:
-    output: true
-    permalink: /:collection/:path/
 
 
 # Defaults
@@ -288,18 +285,6 @@ defaults:
       share: true
       comment: false
       comments: false
-  # _scripts
-  - scope:
-      path: ""
-      type: scripts
-    values:
-      layout: single
-      author_profile: true
-      read_time: true
-      comment: false
-      comments: false
-      share: true
-      related: true
 
 # Sass/SCSS
 sass:

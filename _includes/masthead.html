@@ -18,7 +18,14 @@
             <li class="masthead__menu-item{% if external_link == false and page.url == link.url %} masthead__menu-item--active{% endif %}"><a href="{{ domain }}{{ link.url }}"{% if external_link %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ link.title }}</a></li>
           {% endfor %}
         </ul>
-        <ul class="hidden-links hidden"></ul>
+        <ul class="hidden-links hidden">
+          <li class="masthead__links-heading">Links</li>
+          <li class="masthead__utility-link"><a href="https://fitts-task.nml.wtf" target="_blank" rel="noopener noreferrer">Fitts</a></li>
+          <li class="masthead__utility-link"><a href="https://chr.nml.wtf" target="_blank" rel="noopener noreferrer">CHR Tasks</a></li>
+          <li class="masthead__utility-link"><a href="https://tablet.nml.wtf" target="_blank" rel="noopener noreferrer">TabletHID</a></li>
+          <li class="masthead__utility-link"><a href="https://sims.nml.wtf" target="_blank" rel="noopener noreferrer">Sims</a></li>
+          <li class="masthead__utility-link"><a href="https://render.nml.wtf" target="_blank" rel="noopener noreferrer">Render</a></li>
+        </ul>
       </nav>
       <button class="theme-toggle" type="button" aria-label="Toggle light theme" aria-pressed="false">
         <span class="theme-toggle__icon" aria-hidden="true"></span>

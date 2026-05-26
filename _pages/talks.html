@@ -10,9 +10,10 @@ redirect_from:
 
 {% include base_path %}
 
-<p style="text-decoration:underline;"><a href="/talkmap.html">See a map of all the places I've given a talk!</a></p>
+<p class="archive-intro"><a href="/talkmap.html">See a map of all the places I've given a talk!</a></p>
 
+<section class="archive-feed" role="list" aria-label="Talks and presentations">
 {% for post in site.talks reversed %}
-  {% include archive-single-talk.html %}
-  <hr style="border-top: 3px dotted #bbb;">
+  {% include archive-single-talk.html archive_feed=true %}
 {% endfor %}
+</section>

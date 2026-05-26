@@ -10,9 +10,10 @@ redirect_from:
 
 {% include base_path %}
 
-<p>You can also find my articles on <u><a href="https://scholar.google.com/citations?user=CUGkYf8AAAAJ&hl=en">my Google Scholar profile</a>.</u></p>
+<p class="archive-intro">You can also find my articles on <u><a href="https://scholar.google.com/citations?user=CUGkYf8AAAAJ&hl=en">my Google Scholar profile</a>.</u></p>
 
+<section class="archive-feed" role="list" aria-label="Publications">
 {% for post in site.publications reversed %}
-  {% include archive-single.html %}
-  <hr style="border-top: 3px dotted #bbb;">
+  {% include archive-single.html archive_feed=true %}
 {% endfor %}
+</section>

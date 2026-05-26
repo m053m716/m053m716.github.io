@@ -18,7 +18,7 @@ redirect_from:
     overflow: visible;
     position: fixed;
     height: 100%;
-    transform: translate(100px, 12%);
+    transform: translate(118px, 12%);
     width: 190px;
     right: 0px;
     top: 0px;
@@ -72,6 +72,17 @@ redirect_from:
     height: 56px;
   }
 
+  .navbar ul li a .nav-label {
+    opacity: 0;
+    white-space: nowrap;
+    transition: opacity 0.15s ease;
+  }
+
+  .navbar:hover ul li a .nav-label,
+  .navbar:focus-within ul li a .nav-label {
+    opacity: 1;
+  }
+
   .navbar ul li a:hover {
     background-color: #575757;
     opacity: 100%;
@@ -113,6 +124,12 @@ redirect_from:
     opacity: 1;
     transform: translate(0, -50%);
   }
+
+  @media (max-width: 1100px) {
+    .navbar {
+      display: none;
+    }
+  }
 </style>
 
 <nav class="navbar">
@@ -121,7 +138,7 @@ redirect_from:
       <a href="https://fitts-task.nml.wtf" target="_blank" rel="noopener noreferrer" title="Fitts target-acquisition tasks for motor throughput experiments.">
         <img src="{{ base_path }}/images/fitts-task-icon.svg" class="nav-icon"
           alt="Fitts Tasks">
-        Fitts
+        <span class="nav-label">Fitts</span>
         <span class="nav-tooltip">Target-acquisition tasks for measuring motor throughput and pointing performance.</span>
       </a>
     </li>
@@ -129,7 +146,7 @@ redirect_from:
       <a href="https://chr.nml.wtf" target="_blank" rel="noopener noreferrer" title="Click-Hold-Release tasks and gesture calibration utilities.">
         <img src="{{ base_path }}/images/chr-task-icon.svg" class="nav-icon"
           alt="CHR Tasks">
-        CHR Tasks
+        <span class="nav-label">CHR Tasks</span>
         <span class="nav-tooltip">Click-Hold-Release tasks, gesture calibration, and study sequencing utilities.</span>
       </a>
     </li>
@@ -137,7 +154,7 @@ redirect_from:
       <a href="https://tablet.nml.wtf" target="_blank" rel="noopener noreferrer" title="TabletHID turns tablet-style input into experiment-friendly controls.">
         <img src="{{ base_path }}/images/tablet-hid-icon.svg" class="nav-icon"
           alt="TabletHID">
-        TabletHID
+        <span class="nav-label">TabletHID</span>
         <span class="nav-tooltip">Tablet-style HID controls for touch-driven experiment and demo interfaces.</span>
       </a>
     </li>
@@ -145,7 +162,7 @@ redirect_from:
       <a href="https://sims.nml.wtf" target="_blank" rel="noopener noreferrer" title="Biophysical simulations for muscles, motor pools, and reflex arcs.">
         <img src="{{ base_path }}/images/sims-icon.svg" class="nav-icon"
           alt="Biophysical Simulations">
-        Sims
+        <span class="nav-label">Sims</span>
         <span class="nav-tooltip">Biophysical simulations linking muscle mechanics, motor pools, and reflex pathways.</span>
       </a>
     </li>
@@ -153,7 +170,7 @@ redirect_from:
       <a href="https://render.nml.wtf" target="_blank" rel="noopener noreferrer" title="Render neural network schematics and figure panels.">
         <img src="{{ base_path }}/images/render-icon.svg" class="nav-icon"
           alt="Network Architecture Renderer">
-        Render
+        <span class="nav-label">Render</span>
         <span class="nav-tooltip">Neural network architecture diagrams and exportable figure panels for AI/ML work.</span>
       </a>
     </li>
@@ -165,7 +182,7 @@ redirect_from:
   that role after my postdoctoral position in the same lab, where my work centered on neurotechnology, mechatronics,
   and software for studying sensorimotor control.</p>
 <p>Recently, I have been building browser-based behavioral tasks, input-device utilities, and biophysical simulations
-  that connect neural dynamics with embodied interaction. That includes <a href="https://fitts-task.nml.wtf" target="_blank" rel="noopener noreferrer">Fitts</a> and <a href="https://chr.nml.wtf" target="_blank" rel="noopener noreferrer">Click-Hold-Release</a> task batteries,
+  that connect neural dynamics with embodied interaction. That includes <a href="https://fitts-task.nml.wtf" target="_blank" rel="noopener noreferrer">Fitts</a> and <a href="https://chr.nml.wtf" target="_blank" rel="noopener noreferrer">Click-Hold-Release</a> task batteries to assess HCI quality and reliability,
   the <a href="https://tablet.nml.wtf" target="_blank" rel="noopener noreferrer">TabletHID</a> app, <a href="https://about.fb.com/news/2026/05/meta-ai-wearables-changing-the-game-for-disabled-people/" target="_blank" rel="noopener noreferrer">wearable accessible EMG</a> workflows, 
   and both <a href="https://chr.nml.wtf/simulations/" target="_blank" rel="noopener noreferrer">stochastic</a> and <a href="https://sims.nml.wtf" target="_blank" rel="noopener noreferrer">deterministic</a> models to answer questions about the controllability of motor neurons.</p>
 <hr style="border-top: 3px dotted #bbb;width:33%;left:33%">

@@ -27,6 +27,7 @@
       --site-bg-soft: #162331;
       --site-surface: #182434;
       --site-surface-strong: #203145;
+      --site-card-backing: #000000;
       --site-text: #e7eef7;
       --site-text-muted: #aebdca;
       --site-border: #365067;
@@ -43,6 +44,7 @@
       --site-bg-soft: #eef4f8;
       --site-surface: #ffffff;
       --site-surface-strong: #edf5fa;
+      --site-card-backing: #eef2f5;
       --site-text: #182331;
       --site-text-muted: #536272;
       --site-border: #d4e0e8;
@@ -78,14 +80,20 @@
     .masthead {
       position: sticky;
       top: 0;
-      background: color-mix(in srgb, var(--site-bg) 90%, transparent);
-      border-bottom: 1px solid var(--site-border);
+      background: color-mix(in srgb, var(--site-bg) 94%, transparent);
+      border-bottom: 0;
+      box-shadow: none;
       backdrop-filter: blur(12px);
+    }
+
+    .masthead__inner-wrap {
+      max-width: 1280px;
+      padding-bottom: 0;
     }
 
     .masthead__menu {
       display: flex;
-      align-items: center;
+      align-items: flex-end;
       gap: 0.8rem;
     }
 
@@ -95,6 +103,12 @@
 
     .greedy-nav {
       background: transparent;
+    }
+
+    .greedy-nav .visible-links {
+      display: flex;
+      align-items: flex-end;
+      gap: 0.15rem;
     }
 
     .greedy-nav a,
@@ -112,6 +126,8 @@
       border: 1px solid var(--site-border);
       border-bottom-color: var(--site-surface);
       border-radius: 8px 8px 0 0;
+      box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.12);
+      transform: translateY(1px);
     }
 
     .greedy-nav > button {
@@ -128,6 +144,20 @@
 
     .greedy-nav .hidden-links li {
       border-bottom-color: var(--site-border);
+    }
+
+    .greedy-nav .hidden-links .masthead__links-heading {
+      padding: 0.55rem 1rem 0.35rem;
+      color: var(--site-link-hover);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      border-bottom: 0;
+    }
+
+    .greedy-nav .hidden-links .masthead__utility-link a {
+      color: var(--site-text);
     }
 
     .greedy-nav .hidden-links a:hover {
@@ -180,6 +210,14 @@
     }
 
     .page .page__inner-wrap {
+      padding: 1.25rem;
+      background: color-mix(in srgb, var(--site-surface) 94%, transparent);
+      border: 1px solid var(--site-border);
+      border-radius: 10px;
+      box-shadow: var(--site-shadow);
+    }
+
+    .archive {
       padding: 1.25rem;
       background: color-mix(in srgb, var(--site-surface) 94%, transparent);
       border: 1px solid var(--site-border);
@@ -252,10 +290,18 @@
     }
 
     .section-heading--with-meta {
-      display: flex;
+      display: inline-flex;
       align-items: baseline;
       flex-wrap: wrap;
       gap: 0.35rem 0.75rem;
+      margin: 0 0 0.8rem;
+      padding: 0.48rem 0.75rem;
+      color: var(--site-text);
+      background: var(--site-surface);
+      border: 1px solid var(--site-border);
+      border-bottom-color: var(--site-surface);
+      border-radius: 8px 8px 0 0;
+      transform: translateY(1px);
     }
 
     .section-heading__meta {
@@ -304,6 +350,10 @@
 
     .page__content h2 {
       border-bottom-color: var(--site-border);
+    }
+
+    .page__content .section-heading--with-meta {
+      border-bottom-color: var(--site-surface);
     }
 
     .page__content blockquote {
@@ -486,8 +536,77 @@
     .news-feed {
       display: grid;
       gap: 1.15rem;
-      margin: 1rem -0.15rem 2rem;
-      padding: 0.2rem 0 0.8rem;
+      margin: 1rem -1.25rem 2rem;
+      padding: 1.15rem 1.25rem 1.45rem;
+      background: var(--site-card-backing);
+      border-top: 1px solid var(--site-border);
+      border-bottom: 1px solid var(--site-border);
+    }
+
+    .archive-intro {
+      margin: 0 0 1rem;
+      color: var(--site-text-muted);
+    }
+
+    .archive-feed {
+      display: grid;
+      gap: 1.15rem;
+      margin: 1rem -1.25rem 0;
+      padding: 1.15rem 1.25rem 1.45rem;
+      background: var(--site-card-backing);
+      border-top: 1px solid var(--site-border);
+      border-bottom: 1px solid var(--site-border);
+    }
+
+    .archive-feed .list__item {
+      margin: 0;
+      padding: 1rem;
+      color: var(--site-text);
+      background: var(--site-surface);
+      border: 1px solid var(--site-border);
+      border-radius: 8px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16);
+      scroll-margin-top: 6rem;
+    }
+
+    .archive-feed .archive__item {
+      margin: 0;
+    }
+
+    .archive-feed .archive__item-title {
+      margin: 0 0 0.55rem;
+      color: var(--site-text);
+      font-size: 1.05rem;
+      line-height: 1.28;
+    }
+
+    .archive-feed .archive__item-title a {
+      text-decoration: none;
+    }
+
+    .archive-feed .archive__item-title a:hover {
+      text-decoration: underline;
+    }
+
+    .archive-feed .archive__item p,
+    .archive-feed .archive__item-excerpt,
+    .archive-feed .page__date,
+    .archive-feed .page__meta {
+      color: var(--site-text);
+    }
+
+    .archive-feed .page__date,
+    .archive-feed .page__meta,
+    .archive-feed .archive__item > p:first-of-type {
+      margin-top: 0.2rem;
+      color: var(--site-text-muted);
+      font-size: 0.82rem;
+      line-height: 1.45;
+    }
+
+    .archive-feed .archive__item-excerpt {
+      margin-top: 0.65rem;
+      margin-bottom: 0;
     }
 
     .news-card {
@@ -688,8 +807,27 @@
       background: var(--site-surface);
     }
 
+    @media (max-width: 1100px) {
+      .greedy-nav > button.hidden {
+        display: block;
+        visibility: visible;
+      }
+
+      .greedy-nav .hidden-links {
+        width: min(17rem, calc(100vw - 1rem));
+      }
+
+      .navbar {
+        display: none;
+      }
+    }
+
     @media (max-width: 768px) {
       .page .page__inner-wrap {
+        padding: 1rem;
+      }
+
+      .archive {
         padding: 1rem;
       }
 
@@ -712,8 +850,17 @@
       }
 
       .news-feed {
-        margin-right: 0;
-        margin-left: 0;
+        margin-right: -1rem;
+        margin-left: -1rem;
+        padding-right: 1rem;
+        padding-left: 1rem;
+      }
+
+      .archive-feed {
+        margin-right: -1rem;
+        margin-left: -1rem;
+        padding-right: 1rem;
+        padding-left: 1rem;
       }
 
       .news-card {
@@ -729,9 +876,6 @@
         margin-bottom: 0.25rem;
       }
 
-      .navbar {
-        display: none;
-      }
     }
 </style>
 

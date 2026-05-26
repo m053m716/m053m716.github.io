@@ -8,11 +8,12 @@ author_profile: true
 {% include base_path %}
 {% if site.researchmap_link == true %}
 
-<p style="text-decoration:underline;"><a href="/researchmap.html">See a map of places I've conducted research or collaborated with others!</a></p>
+<p class="archive-intro"><a href="/researchmap.html">See a map of places I've conducted research or collaborated with others!</a></p>
 
 {% endif %}
 
+<section class="archive-feed" role="list" aria-label="Research">
 {% for post in site.research reversed %}
-  {% include archive-single.html %}
-  <hr style="border-top: 3px dotted #bbb;">
+  {% include archive-single.html archive_feed=true %}
 {% endfor %}
+</section>
