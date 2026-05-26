@@ -1,0 +1,51 @@
+# Metadata for WIP manuscript PDFs stored in /files/Murphy___YYYY-MM-DD___*.pdf
+# The `file` key must match the PDF basename (filename without extension).
+
+- file: "Murphy___2025-11-03___Estimating_Erlang_k_Stage_Index_from_Motor_Unit_Event_Timings"
+  title: "Estimating Erlang-k Stage Index from Motor Unit Event Timings"
+  summary: >
+    Derives an exact relationship between the coefficient of variation (CV) of motor unit
+    inter-spike intervals (ISIs), the absolute refractory period, and the Erlang shape
+    parameter k. Because ISO-format dates sort lexicographically, the k parameter can be
+    recovered from any ISI record via a single-parameter nonlinear regression of CV_ISI
+    versus the product of mean firing rate and minimum observed ISI—requiring only that
+    firing rate is approximately constant within the epoch of interest.
+  citation: "Murphy MD. Estimating Erlang-k Stage Index from Motor Unit Event Timings. 2025. Unpublished manuscript."
+
+- file: "Murphy___2025-11-03___Motor_unit_inter_spike_interval_state_dependence_near_steady_state_firing"
+  title: "Motor Unit Inter-Spike-Interval State-Dependence Near Steady-State Firing"
+  summary: >
+    Provides a quantitative treatment of ISI serial dependence using the Hodgkin–Huxley
+    framework, demonstrating how residual activation of ion channels and slow ionic
+    clearance introduce "state memory" across spikes. When the mean ISI becomes comparable
+    to the recovery time of slow conductances (e.g., calcium-dependent potassium currents),
+    gating variables fail to fully reset between spikes, yielding correlated ISIs. An
+    approximate autoregressive form is derived linking lag-1 ISI correlation to the ratio
+    of ISI duration and the dominant ionic recovery time constant, with implications for
+    fatigue-related modulation of motor unit excitability.
+  citation: "Murphy MD. Motor Unit Inter-Spike-Interval State-Dependence Near Steady-State Firing. 2025. Unpublished manuscript."
+
+- file: "Murphy___2025-11-03___On_the_practical_distance_diameter_relationship_for_extracellular_recruitment_of_spinal_afferent_and_efferent_axons"
+  title: "On the practical distance-diameter relationship for extracellular recruitment of spinal afferent and efferent axons"
+  summary: >
+    Derives a cube-root scaling law from the activating-function framework showing that
+    the distance at which an axon is recruited by an extracellular electrode scales as the
+    cube root of (current × diameter / tissue conductivity). The relationship explains
+    why large-diameter myelinated afferents (Group Ia/Ib, Aβ) are preferentially activated
+    during dorsal epidural stimulation, while ventral-root motor efferents—being smaller
+    and located farther from dorsal contacts—typically require closer proximity or higher
+    current to be recruited.
+  citation: "Murphy MD. On the practical distance-diameter relationship for extracellular recruitment of spinal afferent and efferent axons. 2025. Unpublished manuscript."
+
+- file: "Murphy___2026-05-26___Past_the_Point_of_Fitts"
+  title: "Past the Point of Fitts: A discussion of better throughput estimators for digital interaction"
+  summary: >
+    Surveys throughput estimators across spatial and non-spatial human–computer interaction
+    domains, reviewing classical Fitts point-to-point formulations, modern effective-width
+    refinements, and mutual-information-based alternatives. Evaluates published BCI and
+    myoelectric studies and shows that continuous 3D reach tasks lack the explicit target
+    geometry required for valid bit-rate estimation. Highlights the gap between device
+    throughput (13–26 bits/s for soft keyboards) and the intrinsic human information rate
+    in high-speed typing (30–40 bits/s), and proposes methodological criteria for
+    comparing interaction performance across neural and muscular interfaces.
+  citation: "Murphy MD. Past the Point of Fitts: A discussion of better throughput estimators for digital interaction. 2026. Unpublished manuscript."

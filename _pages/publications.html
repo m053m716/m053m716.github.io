@@ -11,79 +11,111 @@ redirect_from:
 {% include base_path %}
 
 <style>
-.pub-section {
-  margin-bottom: 3em;
+/* ── Tab + feed wrapper (bleeds to archive edges) ───────────────── */
+.pub-section-wrap {
+  margin: 1rem -1.25rem 2rem;
 }
 
-.pub-section-title {
-  font-size: 1.3em;
-  font-weight: 700;
-  color: #494e52;
-  padding-bottom: 0.45em;
-  border-bottom: 2px solid #dce0e3;
-  margin-top: 1.5em;
-  margin-bottom: 1.5em;
+/* ── Tab bar ──────────────────────────────────────────────────────── */
+.pub-tabs {
+  display: flex;
+  padding: 0 1.25rem;
+  background: var(--site-surface);
+  border-top: 1px solid var(--site-border);
+  border-bottom: 1px solid var(--site-border);
 }
 
-.pub-entry {
-  padding-bottom: 1.5em;
-  margin-bottom: 1.5em;
-  border-bottom: 1px solid #f0f1f2;
-}
-
-.pub-entry:last-child {
-  border-bottom: none;
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
-.pub-title {
-  font-size: 1em;
+.pub-tab {
+  position: relative;
+  padding: 0.8em 1.35em;
+  font-family: inherit;
+  font-size: 1.05em;
   font-weight: 600;
-  line-height: 1.45;
-  margin: 0 0 0.25em 0;
+  color: var(--site-text);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  transition: color 0.18s ease;
 }
 
-.pub-title a {
-  color: inherit;
-  text-decoration: none;
+.pub-tab::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--site-link-hover);
+  border-radius: 2px 2px 0 0;
+  transform: scaleX(0);
+  transition: transform 0.18s ease;
 }
 
-.pub-title a:hover {
-  color: #52adc8;
-  text-decoration: underline;
+.pub-tab:hover {
+  color: var(--site-link-hover);
 }
 
-.pub-meta {
-  font-size: 0.85em;
-  color: #7a8288;
-  margin: 0 0 0.5em 0;
+.pub-tab:hover::after,
+.pub-tab.active::after {
+  transform: scaleX(1);
 }
 
-.pub-excerpt {
-  font-size: 0.88em;
-  color: #494e52;
-  line-height: 1.55;
-  margin: 0 0 0.7em 0;
+.pub-tab.active {
+  color: var(--site-link-hover);
 }
 
+/* ── Tab panels ────────────────────────────────────────────────────── */
+.pub-panel {
+  display: none;
+  grid-template-columns: 1fr;
+  gap: 1.15rem;
+  padding: 1.15rem 1.25rem 1.45rem;
+  background: var(--site-card-backing);
+  border-bottom: 1px solid var(--site-border);
+}
+
+.pub-panel.active {
+  display: grid;
+}
+
+/* ── Featured / "pop-out" card modifier ────────────────────────────── */
+.news-card--featured {
+  border-color: var(--site-accent-2);
+  border-left-width: 3px;
+  background: color-mix(in srgb, var(--site-surface) 90%, var(--site-accent-2) 10%);
+  box-shadow:
+    0 16px 48px rgba(0, 0, 0, 0.30),
+    0 0 22px color-mix(in srgb, var(--site-accent-2) 24%, transparent);
+}
+
+.news-card--featured .news-card__header {
+  border-bottom-color: color-mix(in srgb, var(--site-accent-2) 45%, transparent);
+}
+
+.news-card--featured .news-card__title a {
+  color: var(--site-link-hover);
+}
+
+/* ── Action buttons ────────────────────────────────────────────────── */
 .pub-actions {
   display: flex;
   align-items: center;
   gap: 0.5em;
   flex-wrap: wrap;
-  margin-top: 0.5em;
+  margin-top: 0.6rem;
+  margin-bottom: 0.3rem;
 }
 
 .btn-download {
   display: inline-flex;
   align-items: center;
   gap: 0.35em;
-  padding: 0.3em 0.85em;
+  padding: 0.28em 0.8em;
   font-size: 0.78em;
   font-weight: 600;
-  color: #fff !important;
-  background-color: #52adc8;
+  color: var(--site-bg) !important;
+  background-color: var(--site-link);
   border: 1px solid transparent;
   border-radius: 4px;
   text-decoration: none !important;
@@ -93,19 +125,19 @@ redirect_from:
 }
 
 .btn-download:hover {
-  background-color: #3d8fa8;
+  background-color: color-mix(in srgb, var(--site-link) 80%, #000 20%);
 }
 
 .btn-cite {
   display: inline-flex;
   align-items: center;
   gap: 0.35em;
-  padding: 0.3em 0.85em;
+  padding: 0.28em 0.8em;
   font-size: 0.78em;
   font-weight: 600;
-  color: #7a8288;
-  background-color: transparent;
-  border: 1px solid #bdc3c7;
+  color: var(--site-text-muted);
+  background: transparent;
+  border: 1px solid var(--site-border);
   border-radius: 4px;
   cursor: pointer;
   transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
@@ -114,72 +146,164 @@ redirect_from:
 }
 
 .btn-cite:hover {
-  background-color: #f5f6f7;
-  border-color: #7a8288;
-  color: #494e52;
+  color: var(--site-text);
+  background: var(--site-surface-strong);
+  border-color: color-mix(in srgb, var(--site-border) 55%, var(--site-text) 45%);
 }
 
 .btn-cite.copied {
   color: #62c462;
   border-color: #62c462;
-  background-color: #f0faf0;
+  background: color-mix(in srgb, var(--site-surface) 88%, #62c462 12%);
+}
+
+/* ── Responsive ────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .pub-section-wrap {
+    margin-right: -1rem;
+    margin-left: -1rem;
+  }
+  .pub-tabs {
+    padding: 0 1rem;
+  }
+  .pub-panel {
+    padding: 1rem 1rem 1.25rem;
+  }
 }
 </style>
 
 <p class="archive-intro">You can also find my articles on <u><a href="https://scholar.google.com/citations?user=CUGkYf8AAAAJ&hl=en">my Google Scholar profile</a>.</u></p>
 
-<section class="pub-section">
-  <h2 class="pub-section-title">Peer-Reviewed</h2>
-  {% assign peer_reviewed = site.publications | sort: "date" | reverse %}
-  {% for post in peer_reviewed %}
-  <div class="pub-entry">
-    <p class="pub-title"><a href="{{ base_path }}{{ post.url }}">{{ post.title }}</a></p>
-    <p class="pub-meta">Published in <em>{{ post.venue }}</em>, {{ post.date | date: "%Y" }}</p>
-    {% if post.excerpt %}
-    <p class="pub-excerpt">{{ post.excerpt }}</p>
-    {% endif %}
-    <div class="pub-actions">
-      {% if post.paperurl %}
-      <a href="{{ post.paperurl }}" class="btn-download" target="_blank" rel="noopener">
-        <i class="fas fa-download"></i> <span class="btn-label">Download</span>
-      </a>
-      {% endif %}
-      {% if post.citation %}
-      <button class="btn-cite" data-citation="{{ post.citation | escape }}" title="Copy citation to clipboard">
-        <i class="fas fa-copy"></i> <span class="btn-label">Cite</span>
-      </button>
-      {% endif %}
-    </div>
-  </div>
-  {% endfor %}
-</section>
+<div class="pub-section-wrap">
 
-<section class="pub-section">
-  <h2 class="pub-section-title">Manuscripts</h2>
-  {% assign manuscript_files = site.static_files | where_exp: "file", "file.name contains 'Murphy___'" | sort: "name" | reverse %}
-  {% for file in manuscript_files %}
-  {% assign parts = file.basename | split: "___" %}
-  {% assign ms_date = parts[1] %}
-  {% assign ms_year = ms_date | slice: 0, 4 %}
-  {% assign ms_title = parts[2] | replace: "_", " " %}
-  {% assign ms_citation = "Murphy MD. " | append: ms_title | append: ". " | append: ms_year | append: ". Unpublished manuscript." %}
-  <div class="pub-entry">
-    <p class="pub-title">{{ ms_title }}</p>
-    <p class="pub-meta">{{ ms_date | date: "%B %Y" }}</p>
-    <div class="pub-actions">
-      <a href="{{ file.path }}" class="btn-download" target="_blank" rel="noopener">
-        <i class="fas fa-download"></i> <span class="btn-label">Download</span>
-      </a>
-      <button class="btn-cite" data-citation="{{ ms_citation | escape }}" title="Copy citation to clipboard">
-        <i class="fas fa-copy"></i> <span class="btn-label">Cite</span>
-      </button>
-    </div>
+  <!-- Tab bar -->
+  <div class="pub-tabs" role="tablist">
+    <button class="pub-tab active" role="tab" aria-selected="true"
+            aria-controls="tab-peer-reviewed" id="tab-btn-peer-reviewed"
+            data-tab="peer-reviewed">Peer-Reviewed</button>
+    <button class="pub-tab" role="tab" aria-selected="false"
+            aria-controls="tab-in-preparation" id="tab-btn-in-preparation"
+            data-tab="in-preparation">In Preparation</button>
   </div>
-  {% endfor %}
-</section>
+
+  <!-- Peer-Reviewed panel -->
+  <div class="pub-panel active" id="tab-peer-reviewed"
+       role="tabpanel" aria-labelledby="tab-btn-peer-reviewed">
+    {% assign peer_reviewed = site.publications | sort: "date" | reverse %}
+    {% for post in peer_reviewed %}
+    <article class="news-card{% if post.featured %} news-card--featured{% endif %}"
+             tabindex="0" aria-labelledby="pub-pr-title-{{ forloop.index }}">
+      <header class="news-card__header">
+        <time class="news-card__date">{{ post.venue }}, {{ post.date | date: "%Y" }}</time>
+        <h3 class="news-card__title" id="pub-pr-title-{{ forloop.index }}">
+          <a href="{{ base_path }}{{ post.url }}">{{ post.title }}</a>
+        </h3>
+      </header>
+      <div class="news-card__body" id="pub-pr-body-{{ forloop.index }}">
+        {% if post.excerpt %}<p>{{ post.excerpt }}</p>{% endif %}
+      </div>
+      <div class="pub-actions">
+        {% if post.paperurl %}
+        <a href="{{ post.paperurl }}" class="btn-download" target="_blank" rel="noopener">
+          <i class="fas fa-download"></i> <span>Download</span>
+        </a>
+        {% endif %}
+        {% if post.citation %}
+        <button class="btn-cite" data-citation="{{ post.citation | escape }}"
+                title="Copy citation to clipboard">
+          <i class="fas fa-copy"></i> <span class="btn-label">Cite</span>
+        </button>
+        {% endif %}
+      </div>
+      <button class="news-card__expand" type="button" aria-expanded="false"
+              aria-controls="pub-pr-body-{{ forloop.index }}"
+              aria-label="Expand {{ post.title }}">
+        <span aria-hidden="true">+</span>
+      </button>
+    </article>
+    {% endfor %}
+  </div>
+
+  <!-- In Preparation panel -->
+  <div class="pub-panel" id="tab-in-preparation"
+       role="tabpanel" aria-labelledby="tab-btn-in-preparation">
+    {% assign manuscript_files = site.static_files | where_exp: "file", "file.name contains 'Murphy___'" | sort: "name" | reverse %}
+    {% for file in manuscript_files %}
+    {% assign parts = file.basename | split: "___" %}
+    {% assign ms_date = parts[1] %}
+    {% assign ms_year = ms_date | slice: 0, 4 %}
+    {% assign ms_title_raw = parts[2] | replace: "_", " " %}
+    {% assign ms_data = site.data.manuscripts | where: "file", file.basename | first %}
+    {% if ms_data %}
+      {% assign ms_title = ms_data.title %}
+      {% assign ms_summary = ms_data.summary %}
+      {% assign ms_citation = ms_data.citation %}
+    {% else %}
+      {% assign ms_title = ms_title_raw %}
+      {% assign ms_summary = "" %}
+      {% assign ms_citation = "Murphy MD. " | append: ms_title_raw | append: ". " | append: ms_year | append: ". Unpublished manuscript." %}
+    {% endif %}
+    <article class="news-card" tabindex="0"
+             aria-labelledby="pub-ms-title-{{ forloop.index }}">
+      <header class="news-card__header">
+        <time class="news-card__date">{{ ms_date | date: "%B %Y" }}</time>
+        <h3 class="news-card__title" id="pub-ms-title-{{ forloop.index }}">{{ ms_title }}</h3>
+      </header>
+      <div class="news-card__body" id="pub-ms-body-{{ forloop.index }}">
+        {% if ms_summary != "" %}<p>{{ ms_summary }}</p>{% endif %}
+      </div>
+      <div class="pub-actions">
+        <a href="{{ file.path }}" class="btn-download" target="_blank" rel="noopener">
+          <i class="fas fa-download"></i> <span>Download</span>
+        </a>
+        <button class="btn-cite" data-citation="{{ ms_citation | escape }}"
+                title="Copy citation to clipboard">
+          <i class="fas fa-copy"></i> <span class="btn-label">Cite</span>
+        </button>
+      </div>
+      <button class="news-card__expand" type="button" aria-expanded="false"
+              aria-controls="pub-ms-body-{{ forloop.index }}"
+              aria-label="Expand {{ ms_title }}">
+        <span aria-hidden="true">+</span>
+      </button>
+    </article>
+    {% endfor %}
+  </div>
+
+</div><!-- .pub-section-wrap -->
 
 <script>
 (function () {
+  /* ── Tab switching ─────────────────────────────────────────── */
+  var tabs = document.querySelectorAll('.pub-tab');
+  var panels = document.querySelectorAll('.pub-panel');
+
+  function activateTab(tabId) {
+    tabs.forEach(function (t) {
+      var active = t.getAttribute('data-tab') === tabId;
+      t.classList.toggle('active', active);
+      t.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+    panels.forEach(function (p) {
+      p.classList.toggle('active', p.id === 'tab-' + tabId);
+    });
+  }
+
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      var id = this.getAttribute('data-tab');
+      activateTab(id);
+      history.replaceState(null, '', '#' + id);
+    });
+  });
+
+  /* Honour URL hash on load */
+  var hash = (window.location.hash || '').replace('#', '');
+  if (hash === 'peer-reviewed' || hash === 'in-preparation') {
+    activateTab(hash);
+  }
+
+  /* ── Clipboard copy ────────────────────────────────────────── */
   function onCopied(btn) {
     var icon = btn.querySelector('i');
     var label = btn.querySelector('.btn-label');
