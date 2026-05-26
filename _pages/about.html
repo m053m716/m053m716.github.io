@@ -66,6 +66,11 @@ redirect_from:
     opacity: 50%;
   }
 
+  .navbar ul li a img.nav-icon {
+    width: 56px;
+    height: 56px;
+  }
+
   .navbar ul li a:hover {
     background-color: #575757;
     opacity: 100%;
@@ -96,23 +101,30 @@ redirect_from:
     </li>
     <li>
       <a href="https://fitts-task.nml.wtf">
-        <img src="{{ base_path }}/assets/images/Fitts-Law.webp"
+        <img src="{{ base_path }}/images/fitts-task-icon.svg" class="nav-icon"
           alt="Fitts Tasks">
         Fitts
       </a>
     </li>
     <li>
       <a href="https://chr.nml.wtf">
-        <img src="{{ base_path }}/assets/images/CHR-Tasks.webp"
+        <img src="{{ base_path }}/images/chr-task-icon.svg" class="nav-icon"
           alt="CHR Tasks">
         CHR Tasks
       </a>
     </li>
     <li>
       <a href="https://tablet.nml.wtf">
-        <img src="{{ base_path }}/assets/images/TabletHID.webp"
+        <img src="{{ base_path }}/images/tablet-hid-icon.svg" class="nav-icon"
           alt="TabletHID">
         TabletHID
+      </a>
+    </li>
+    <li>
+      <a href="https://sims.nml.wtf">
+        <img src="{{ base_path }}/images/sims-icon.svg" class="nav-icon"
+          alt="Biophysical Simulations">
+        Sims
       </a>
     </li>
   </ul>
