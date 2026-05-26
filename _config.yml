@@ -10,12 +10,12 @@ locale                   : "en-US"
 title                    : "Maxwell D. Murphy"
 title_separator          : "-"
 name                     : &name "Maxwell D. Murphy"
-description              : &description "Full stack engineer"
+description              : &description "Neuro-mechatronics researcher and full stack engineer"
 url                      : https://about.murphylab.net # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "m053m716/m053m716.github.io"
-search                   : true
-search_provider          : algolia
+search                   : false
+search_provider          :
 favicon                  : "https://about.murphylab.net/assets/favicon/favicon.ico"
 logo                     : "/images/nigeLab_Logo.PNG"
 teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
@@ -26,9 +26,9 @@ read_more                : "enabled" # if enabled, adds "Read more" links to exc
 talkmap_link             : true #change to true to add link to talkmap on talks page
 researchmap_link         : true #change to true to add link to researchmap on research page
 comments:
-  provider               : "disqus" # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "custom"
+  provider               : false # false (default), "disqus", "discourse", "staticman", "custom"
   disqus:
-    shortname            : "https-m053m716-github-io"
+    shortname            :
   discourse:
     server               : # https://meta.discourse.org/t/embedding-discourse-comments-via-javascript/31963 , e.g.: meta.discourse.org
   facebook:
@@ -62,9 +62,9 @@ yandex_site_verification :
 
 # Search Engine
 algolia:
-  application_id: AYIVNI1SRI # YOUR_APPLICATION_ID
-  index_name: test_HOME # YOUR_INDEX_NAME
-  search_only_api_key: db4f8b7f91c76b91e4ec53a3c29dd690 # YOUR_SEARCH_ONLY_API_KEY
+  application_id: # YOUR_APPLICATION_ID
+  index_name: # YOUR_INDEX_NAME
+  search_only_api_key: # YOUR_SEARCH_ONLY_API_KEY
   powered_by: # true (default), false
 
 # Social Sharing
@@ -85,9 +85,9 @@ social:
 
 # Analytics
 analytics: 
-  provider               : "google-universal" # false (default), "google", "google-universal", "custom"
+  provider               : false # false (default), "google", "custom"
   google:
-    tracking_id          : "UA-181535155-1"
+    tracking_id          :
 
 
 # Site Author
@@ -229,8 +229,8 @@ defaults:
       layout: single
       author_profile: true
       read_time: true
-      comment: true
-      comments: true
+      comment: false
+      comments: false
       share: true
       related: true
   # _pages
@@ -239,8 +239,8 @@ defaults:
       type: pages
     values:
       layout: single
-      comment: true
-      comments: true
+      comment: false
+      comments: false
       author_profile: true
   # _publications
   - scope:
@@ -250,8 +250,8 @@ defaults:
       layout: manuscript
       author_profile: true
       share: true
-      comment: true
-      comments: true
+      comment: false
+      comments: false
   # _research
   - scope:
       path: ""
@@ -260,8 +260,8 @@ defaults:
       layout: single
       author_profile: false
       share: true
-      comment: true
-      comments: true
+      comment: false
+      comments: false
   # _talks
   - scope:
       path: ""
@@ -270,8 +270,8 @@ defaults:
       layout: talk
       author_profile: true
       share: true
-      comment: true
-      comments: true
+      comment: false
+      comments: false
   # _scripts
   - scope:
       path: ""
@@ -280,8 +280,8 @@ defaults:
       layout: single
       author_profile: true
       read_time: true
-      comment: true
-      comments: true
+      comment: false
+      comments: false
       share: true
       related: true
 
