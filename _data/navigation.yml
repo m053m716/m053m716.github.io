@@ -9,11 +9,8 @@ main:
   - title: "Research"
     url: /research/
 
-  - title: "Scripts"
-    url: /scripts/
-    
-  - title: "Repositories"
-    url: /repos/
+  - title: "Code"
+    url: https://github.com/Neuro-Mechatronics-Interfaces
 
   - title: "CV"
     url: /cv/

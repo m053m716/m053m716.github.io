@@ -6,7 +6,7 @@
 <meta name="msapplication-TileColor" content="#000000">
 <meta name="msapplication-TileImage" content="{{ base_path }}/images/mstile-144x144.png">
 <meta name="msapplication-config" content="{{ base_path }}/images/browserconfig.xml">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#111827">
 <link rel="stylesheet" href="{{ base_path }}/assets/css/academicons.css"/>
 <script type="text/javascript" src="{{ base_path }}/assets/js/custom.js"></script>
 <script type="text/x-mathjax-config"> MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "all" } } }); </script>
@@ -21,11 +21,269 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
 
 <style>
+    :root {
+      color-scheme: dark;
+      --site-bg: #0f1720;
+      --site-bg-soft: #162331;
+      --site-surface: #182434;
+      --site-surface-strong: #203145;
+      --site-text: #e7eef7;
+      --site-text-muted: #aebdca;
+      --site-border: #365067;
+      --site-link: #6fd6ff;
+      --site-link-hover: #f7ca62;
+      --site-accent: #6fd6ff;
+      --site-accent-2: #f7ca62;
+      --site-shadow: 0 16px 45px rgba(0, 0, 0, 0.28);
+    }
+
+    html[data-theme="light"] {
+      color-scheme: light;
+      --site-bg: #f6f8fb;
+      --site-bg-soft: #eef4f8;
+      --site-surface: #ffffff;
+      --site-surface-strong: #edf5fa;
+      --site-text: #182331;
+      --site-text-muted: #536272;
+      --site-border: #d4e0e8;
+      --site-link: #0969a8;
+      --site-link-hover: #995f00;
+      --site-accent: #0077b6;
+      --site-accent-2: #c77d00;
+      --site-shadow: 0 14px 36px rgba(34, 49, 63, 0.12);
+    }
+
+    body {
+      background:
+        linear-gradient(135deg, var(--site-bg) 0%, var(--site-bg-soft) 100%);
+      color: var(--site-text);
+    }
+
+    a,
+    .page__content a,
+    .author__urls a {
+      color: var(--site-link);
+    }
+
+    a:hover,
+    .page__content a:hover,
+    .author__urls a:hover {
+      color: var(--site-link-hover);
+    }
+
+    .masthead {
+      position: sticky;
+      top: 0;
+      background: color-mix(in srgb, var(--site-bg) 90%, transparent);
+      border-bottom: 1px solid var(--site-border);
+      backdrop-filter: blur(12px);
+    }
+
+    .masthead__menu {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    #site-nav {
+      flex: 1 1 auto;
+    }
+
+    .greedy-nav {
+      background: transparent;
+    }
+
+    .greedy-nav a,
+    .masthead__menu-item {
+      color: var(--site-text);
+    }
+
+    .greedy-nav a:hover {
+      color: var(--site-link-hover);
+    }
+
+    .greedy-nav > button {
+      background-color: var(--site-surface-strong);
+      color: var(--site-text);
+      border-left: 1px solid var(--site-border);
+    }
+
+    .greedy-nav .hidden-links {
+      background: var(--site-surface);
+      border-color: var(--site-border);
+      box-shadow: var(--site-shadow);
+    }
+
+    .greedy-nav .hidden-links li {
+      border-bottom-color: var(--site-border);
+    }
+
+    .greedy-nav .hidden-links a:hover {
+      background: var(--site-surface-strong);
+    }
+
+    .greedy-nav .hidden-links:before {
+      border-color: var(--site-border) transparent;
+    }
+
+    .greedy-nav .hidden-links:after {
+      border-color: var(--site-surface) transparent;
+    }
+
+    .theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      min-height: 34px;
+      padding: 0.35rem 0.7rem;
+      color: var(--site-text);
+      background: var(--site-surface);
+      border: 1px solid var(--site-border);
+      border-radius: 999px;
+      box-shadow: none;
+      cursor: pointer;
+      font: inherit;
+    }
+
+    .theme-toggle:hover {
+      color: var(--site-link-hover);
+      border-color: var(--site-link-hover);
+    }
+
+    .theme-toggle__icon {
+      width: 0.8rem;
+      height: 0.8rem;
+      border-radius: 999px;
+      background: var(--site-accent-2);
+      box-shadow: inset -4px -3px 0 var(--site-surface-strong);
+    }
+
+    html[data-theme="light"] .theme-toggle__icon {
+      background: var(--site-accent);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--site-accent) 24%, transparent);
+    }
+
+    #main {
+      max-width: 1280px;
+    }
+
+    .page .page__inner-wrap {
+      padding: 1.25rem;
+      background: color-mix(in srgb, var(--site-surface) 94%, transparent);
+      border: 1px solid var(--site-border);
+      border-radius: 10px;
+      box-shadow: var(--site-shadow);
+    }
+
+    .page__title,
+    .page__content h1,
+    .page__content h2,
+    .page__content h3,
+    .page__content h4,
+    .author__name {
+      color: var(--site-text);
+    }
+
+    .page__content h2 {
+      border-bottom-color: var(--site-border);
+    }
+
+    .page__date,
+    .page__meta,
+    .author__bio,
+    figcaption {
+      color: var(--site-text-muted);
+    }
+
+    .author__bio--tagline {
+      margin-top: 0.25rem;
+      color: var(--site-link-hover);
+      font-weight: 600;
+    }
+
+    .sidebar {
+      color: var(--site-text);
+    }
+
+    .author__urls {
+      background: var(--site-surface);
+      border-color: var(--site-border);
+      box-shadow: var(--site-shadow);
+    }
+
+    .author__avatar img {
+      border-color: var(--site-border);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+    }
+
+    .btn,
+    .btn--inverse,
+    button {
+      border-radius: 8px;
+    }
+
+    hr {
+      border-top-color: var(--site-border) !important;
+      border-bottom-color: var(--site-border) !important;
+    }
+
+    .news-item {
+      padding: 1rem 0;
+      border-bottom: 1px solid color-mix(in srgb, var(--site-border) 70%, transparent);
+    }
+
+    .news-item h3 {
+      margin-top: 0;
+    }
+
+    .news-video-embed video,
+    iframe {
+      max-width: 100%;
+      border-radius: 8px;
+      border-color: var(--site-border) !important;
+    }
+
+    .navbar {
+      background: color-mix(in srgb, var(--site-surface) 84%, transparent) !important;
+      border-left: 1px solid var(--site-border);
+      box-shadow: var(--site-shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .navbar:hover {
+      background: var(--site-surface) !important;
+    }
+
+    .navbar ul li a {
+      color: var(--site-text) !important;
+      gap: 0.5rem;
+      padding: 0.45rem 0.5rem;
+    }
+
+    .navbar ul li a:hover {
+      background-color: var(--site-surface-strong) !important;
+      color: var(--site-link-hover) !important;
+    }
+
+    .navbar ul li a img.nav-icon {
+      padding: 0.45rem;
+      color: var(--site-text);
+      background: var(--site-bg-soft);
+      border: 1px solid var(--site-border);
+      border-radius: 8px;
+      opacity: 0.82;
+    }
+
+    html[data-theme="light"] .navbar ul li a img.nav-icon {
+      filter: none;
+    }
+
     /* Style the tab */
     .tab {
       overflow: hidden;
-      border: 1px solid #ccc;
-      background-color: #f1f1f1;
+      border: 1px solid var(--site-border);
+      background-color: var(--site-surface);
+      border-radius: 8px 8px 0 0;
     }
 
     /* Style the buttons inside the tab */
@@ -38,24 +296,37 @@
       padding: 14px 16px;
       transition: 0.3s;
       font-size: 17px;
+      color: var(--site-text);
     }
 
     /* Change background color of buttons on hover */
     .tab button:hover {
-      background-color: #ddd;
+      background-color: var(--site-surface-strong);
     }
 
     /* Create an active/current tablink class */
     .tab button.active {
-      background-color: #ccc;
+      background-color: var(--site-surface-strong);
+      color: var(--site-link-hover);
     }
 
     /* Style the tab content */
     .tabcontent {
       display: none;
       padding: 6px 12px;
-      border: 1px solid #ccc;
+      border: 1px solid var(--site-border);
       border-top: none;
+      background: var(--site-surface);
+    }
+
+    @media (max-width: 768px) {
+      .page .page__inner-wrap {
+        padding: 1rem;
+      }
+
+      .navbar {
+        display: none;
+      }
     }
 </style>
 

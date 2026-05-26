@@ -15,7 +15,6 @@ redirect_from:
 ---
 
 ## Education ##
-* Postdoc at Carnegie Mellon University Neuro-Mechatronics Lab, 2021-present
 * Ph.D in Bioengineering, University of Kansas, 2020
   + Thesis: *Neurophysiological mechanisms of sensorimotor recovery from stroke*
 * B.S. in Biology, Stanford University, 2011
@@ -28,8 +27,8 @@ redirect_from:
   * CAD for physical device design (Fusion, OnShape, KiCAD, EAGLE)
   * C/C++/Verilog for stuff that needs to be fast
   * **Matlab**/Python/Tableau for stuff that doesn't
-  * CSS/JS for web design
-  * Unity/Blender for gaming
+  * CSS/JS for web-based behavioral tasks and HID-style interfaces
+  * Biophysical and biomechanical simulations
 * Rat pellet retrieval motor model  
 * Nonhuman primate wrist-center-out motor model  
 * Myoelectric realtime/online interfaces  
@@ -38,7 +37,12 @@ redirect_from:
 ---
 
 ## Work experience ##
-### 2021 - present: Postdoc, CMU ###  
+### 2026 - present: Special Faculty Researcher, CMU ###
+* Neuro-Mechatronics Lab
+  + PI: Doug Weber & Darcy Griffin
+* Building experimental software, accessible interfaces, and neuromechanical simulation tools.
+
+### 2021 - 2026: Postdoctoral Researcher, CMU ###
 * Neuro-Mechatronics Lab
   + PI: Doug Weber & Darcy Griffin
 * Studying sensorimotor integration using models from mice to humans.  
