@@ -1,0 +1,100 @@
+# Co-authored papers linked from the Publications > Collaborations tab.
+# Sorted as provided (newest-first roughly). Add featured: true to pop a card.
+
+- title: "Temporal state-space model for forecasting slow-wave EEG power in non-human primates"
+  authors: "Ruitong Jiang, Max Murphy, Julian Low, Douglas J. Weber, Darcy M. Griffin"
+  venue: "Journal of Neural Engineering"
+  year: 2026
+  doi: "10.1088/1741-2552/ae62a9"
+  paperurl: "https://iopscience.iop.org/article/10.1088/1741-2552/ae62a9/meta"
+  featured: false
+  abstract: >
+    Validates an individualized forecasting framework using a TBATS model to predict
+    slow-wave EEG power in cynomolgus monkeys recorded over 12 consecutive days via
+    wireless telemetry. TBATS achieved stable forecasts with as few as 2 days of training
+    data and produced white-noise residuals superior to naive, Holt-Winters, and SARIMA
+    baselines. The framework enables personalized neural baselines for tracking
+    neurodegeneration or optimizing closed-loop therapies in preclinical and clinical
+    applications.
+  citation: "Jiang R, Murphy M, Low J, Weber DJ, Griffin DM. Temporal state-space model for forecasting slow-wave EEG power in non-human primates. J Neural Eng. 2026. doi:10.1088/1741-2552/ae62a9."
+
+- title: "Preliminary study of steerable pulsed transcranial electrical stimulation (TES) of motor cortex in humans"
+  authors: "Mats Forssell, Maxwell D. Murphy, Vishal Jain, Jonathan A. Shulgach, Derya Z. Tansel, Jiaming Cao, Shanila Reza, Maysamreza Chamanzar, Darcy Griffin, Gary K. Fedder, Douglas J. Weber, Pulkit Grover"
+  venue: "Proc. IEEE EMBC 2025"
+  year: 2025
+  doi: "10.1109/EMBC58623.2025.11253222"
+  paperurl: "https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=11253222"
+  featured: false
+  abstract: >
+    Demonstrates precision motor-cortex targeting using a 64-electrode high-density
+    surface array delivering 100 µs pulses at 50–150 mA. Moving the injected electric
+    field by sub-centimeter distances measurably changes the activation profile of arm and
+    hand muscles as monitored by EMG. The results suggest that steerable transcranial
+    electrical stimulation could substitute for invasive stimulation in some clinical
+    contexts and enhance intraoperative muscle-function monitoring.
+  citation: "Forssell M, Murphy MD, Jain V, Shulgach JA, Tansel DZ, Cao J, et al. Preliminary study of steerable pulsed transcranial electrical stimulation (TES) of motor cortex in humans. In: Proc IEEE EMBC. 2025. doi:10.1109/EMBC58623.2025.11253222."
+
+- title: "Absence of cortical reorganization following an internal capsule stroke in rodents"
+  authors: "Patrick E. Cettina, David J. Guggenmos, Siddharth S. Sivakumar, Maxwell D. Murphy, H. Scott Barbay, Randolph J. Nudo, David T. Bundy"
+  venue: "bioRxiv (preprint)"
+  year: 2025
+  doi: "10.1101/2025.10.31.685962"
+  paperurl: "https://www.biorxiv.org/content/biorxiv/early/2025/11/03/2025.10.31.685962.full.pdf"
+  featured: false
+  abstract: >
+    Compares movement-related cortical activity during skilled motor recovery in rats
+    following lesions to either motor cortex or the internal capsule. Cortical lesions
+    showed early behavioral recovery accompanied by widespread reductions in ipsilesional
+    neural activity, whereas internal capsule lesions exhibited delayed recovery without
+    sustained cortical reorganization—suggesting that recovery mechanisms differ
+    fundamentally based on lesion location within the motor pathway.
+  citation: "Cettina PE, Guggenmos DJ, Sivakumar SS, Murphy MD, Barbay HS, Nudo RJ, et al. Absence of cortical reorganization following an internal capsule stroke in rodents. bioRxiv [Preprint]. 2025. doi:10.1101/2025.10.31.685962."
+
+- title: "Reducing scalp pain for pTES of motor cortex using background hums"
+  authors: "Mats Forssell, Rabira Tusi, Jeehyun Kim, Maxwell D. Murphy, Jonathan A. Shulgach, Prakarsh Yadav, Alonso Buitano Tang, Maya Maurer, Vishal Jain, Douglas J. Weber, Benedict J. Alter, Pulkit Grover"
+  venue: "Brain Stimulation"
+  year: 2026
+  doi: "10.1016/j.brs.2026.103024"
+  paperurl: "https://www.brainstimjrnl.com/article/S1935-861X(26)00001-X/fulltext"
+  featured: false
+  abstract: >
+    A letter describing the use of sub-threshold background hum stimulation to reduce
+    scalp discomfort during precision transcranial electrical stimulation (pTES) of motor
+    cortex. The approach targets a practical barrier to clinical adoption of high-density
+    surface electrode TES systems, where skin sensation under active electrodes can limit
+    tolerable stimulation amplitudes.
+  citation: "Forssell M, Tusi R, Kim J, Murphy MD, Shulgach JA, Yadav P, et al. Reducing scalp pain for pTES of motor cortex using background hums. Brain Stimul. 2026;19(1):103024. doi:10.1016/j.brs.2026.103024."
+
+- title: "Magnetoelectric Nanoparticle-Based Wireless Brain-Computer Interface: Underlying Physics and Projected Technology Pathway"
+  authors: "Elric Zhang, Max Shotbolt, Mostafa Abdel-Mottaleb, Shawnus Chen, Victoria Andre, Jieyuan Tian, Jonathan Shulgach, Max Murphy, Brian Noga, Ping Liang, Darcy Griffin, Douglas Weber, Marta Pardo, Salvador Pane, Sakhrat Khizroev"
+  venue: "Advanced Science"
+  year: 2026
+  doi: "10.1002/advs.202524329"
+  paperurl: "https://advanced.onlinelibrary.wiley.com/doi/pdf/10.1002/advs.202524329"
+  featured: false
+  abstract: >
+    Explores magnetoelectric nanoparticles (MENPs) as a platform for wireless,
+    bidirectional brain-computer interfaces, converting applied magnetic fields into
+    localized electrical signals at the nanoscale. A comprehensive framework incorporating
+    nonlinear physics effects predicts that properly engineered MENPs could enable deep
+    brain and cortical neuromodulation and recording with submillimeter spatial resolution
+    and millisecond temporal precision, potentially offering clinically viable BCIs without
+    implanted electrodes or genetic modification.
+  citation: "Zhang E, Shotbolt M, Abdel-Mottaleb M, Chen S, Andre V, Tian J, et al. Magnetoelectric nanoparticle-based wireless brain-computer interface: underlying physics and projected technology pathway. Adv Sci. 2026. doi:10.1002/advs.202524329."
+
+- title: "Post-ischemic reorganization of sensory responses in cerebral cortex"
+  authors: "P. Hayley, C. Tuchek, S. Dalla, J. Borrell, M. D. Murphy, R. J. Nudo, D. J. Guggenmos"
+  venue: "Frontiers in Neuroscience"
+  year: 2023
+  doi: "10.3389/fnins.2023.1151309"
+  paperurl: "https://www.frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2023.1151309/full"
+  featured: false
+  abstract: >
+    Investigates whether peripheral sensory stimulation activates premotor cortex
+    following primary motor cortex injury in rats. Neural responses to mechanical forepaw
+    stimulation were recorded four weeks post-ischemic lesion in seven rats.
+    Post-ischemic functional connectivity emerged between premotor and somatosensory
+    cortex, and stimulation of premotor regions modulated sensory responses—suggesting
+    that premotor–somatosensory coupling is a substrate for sensorimotor recovery after
+    stroke.
+  citation: "Hayley P, Tuchek C, Dalla S, Borrell J, Murphy MD, Nudo RJ, et al. Post-ischemic reorganization of sensory responses in cerebral cortex. Front Neurosci. 2023. doi:10.3389/fnins.2023.1151309."

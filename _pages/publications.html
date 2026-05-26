@@ -184,6 +184,9 @@ redirect_from:
     <button class="pub-tab" role="tab" aria-selected="false"
             aria-controls="tab-in-preparation" id="tab-btn-in-preparation"
             data-tab="in-preparation">In Preparation</button>
+    <button class="pub-tab" role="tab" aria-selected="false"
+            aria-controls="tab-collaborations" id="tab-btn-collaborations"
+            data-tab="collaborations">Collaborations</button>
   </div>
 
   <!-- Peer-Reviewed panel -->
@@ -243,8 +246,8 @@ redirect_from:
       {% assign ms_summary = "" %}
       {% assign ms_citation = "Murphy MD. " | append: ms_title_raw | append: ". " | append: ms_year | append: ". Unpublished manuscript." %}
     {% endif %}
-    <article class="news-card" tabindex="0"
-             aria-labelledby="pub-ms-title-{{ forloop.index }}">
+    <article class="news-card{% if ms_data.featured %} news-card--featured{% endif %}"
+             tabindex="0" aria-labelledby="pub-ms-title-{{ forloop.index }}">
       <header class="news-card__header">
         <time class="news-card__date">{{ ms_date | date: "%B %Y" }}</time>
         <h3 class="news-card__title" id="pub-ms-title-{{ forloop.index }}">{{ ms_title }}</h3>
@@ -264,6 +267,40 @@ redirect_from:
       <button class="news-card__expand" type="button" aria-expanded="false"
               aria-controls="pub-ms-body-{{ forloop.index }}"
               aria-label="Expand {{ ms_title }}">
+        <span aria-hidden="true">+</span>
+      </button>
+    </article>
+    {% endfor %}
+  </div>
+
+  <!-- Collaborations panel -->
+  <div class="pub-panel" id="tab-collaborations"
+       role="tabpanel" aria-labelledby="tab-btn-collaborations">
+    {% for collab in site.data.collaborations %}
+    <article class="news-card{% if collab.featured %} news-card--featured{% endif %}"
+             tabindex="0" aria-labelledby="pub-co-title-{{ forloop.index }}">
+      <header class="news-card__header">
+        <time class="news-card__date">{{ collab.venue }}, {{ collab.year }}</time>
+        <h3 class="news-card__title" id="pub-co-title-{{ forloop.index }}">{{ collab.title }}</h3>
+      </header>
+      <div class="news-card__body" id="pub-co-body-{{ forloop.index }}">
+        <p style="font-size:0.82em;color:var(--site-text-muted);margin:0 0 0.5em;">{{ collab.authors }}</p>
+        {% if collab.abstract %}<p>{{ collab.abstract }}</p>{% endif %}
+      </div>
+      <div class="pub-actions">
+        <a href="{{ collab.paperurl }}" class="btn-download" target="_blank" rel="noopener">
+          <i class="fas fa-external-link-alt"></i> <span>View</span>
+        </a>
+        {% if collab.citation %}
+        <button class="btn-cite" data-citation="{{ collab.citation | escape }}"
+                title="Copy citation to clipboard">
+          <i class="fas fa-copy"></i> <span class="btn-label">Cite</span>
+        </button>
+        {% endif %}
+      </div>
+      <button class="news-card__expand" type="button" aria-expanded="false"
+              aria-controls="pub-co-body-{{ forloop.index }}"
+              aria-label="Expand {{ collab.title }}">
         <span aria-hidden="true">+</span>
       </button>
     </article>
@@ -299,7 +336,7 @@ redirect_from:
 
   /* Honour URL hash on load */
   var hash = (window.location.hash || '').replace('#', '');
-  if (hash === 'peer-reviewed' || hash === 'in-preparation') {
+  if (hash === 'peer-reviewed' || hash === 'in-preparation' || hash === 'collaborations') {
     activateTab(hash);
   }
 
