@@ -711,9 +711,9 @@
     }
 
     .news-card.has-video-preview .news-card__body {
-      max-height: min(33rem, 68vh);
-      -webkit-mask-image: linear-gradient(#000 82%, transparent 100%);
-      mask-image: linear-gradient(#000 82%, transparent 100%);
+      /* height is set by JS to fit the video exactly; no fade mask */
+      -webkit-mask-image: none;
+      mask-image: none;
     }
 
     .news-card__body > h3:first-child {

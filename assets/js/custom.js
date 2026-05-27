@@ -83,11 +83,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 return explicitHeight;
             }
             if (videoPreview) {
-                var bodyRect = body.getBoundingClientRect();
+                // Size the body to contain the video; focusCollapsedPreview() scrolls to it.
                 var videoRect = videoPreview.getBoundingClientRect();
-                var videoTop = Math.max(0, videoRect.top - bodyRect.top);
-                var targetVideoHeight = videoRect.height || Math.min(body.clientWidth * 0.56, 420);
-                return Math.min(videoTop + targetVideoHeight + 26, Math.max(window.innerHeight * 0.68, 360));
+                var targetVideoHeight = videoRect.height || Math.min(body.clientWidth * 0.5625, 420);
+                return targetVideoHeight + 18;
             }
             var maxHeight = parseFloat(window.getComputedStyle(body).maxHeight);
             return Number.isNaN(maxHeight) ? body.clientHeight : maxHeight;
@@ -193,7 +192,33 @@ document.addEventListener("DOMContentLoaded", function () {
         updateExpandableState();
         window.addEventListener("load", updateExpandableState);
         window.addEventListener("resize", updateExpandableState);
+
+        // Re-measure once the video's intrinsic dimensions are known.
+        var videoEl = body.querySelector(".news-video-embed video");
+        if (videoEl) {
+            videoEl.addEventListener("loadedmetadata", updateExpandableState, { once: true });
+        }
     });
+
+    // Muted autoplay: play/pause each news video as it enters/leaves the viewport.
+    if ("IntersectionObserver" in window) {
+        var vidObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                var video = entry.target;
+                if (entry.isIntersecting) {
+                    video.muted = true;
+                    video.play().catch(function () {});
+                } else {
+                    video.pause();
+                }
+            });
+        }, { threshold: 0.25 });
+
+        document.querySelectorAll(".news-video-embed video").forEach(function (video) {
+            video.muted = true;
+            vidObserver.observe(video);
+        });
+    }
     var toggle = document.querySelector(".theme-toggle");
     if (toggle) {
         toggle.addEventListener("click", function () {
