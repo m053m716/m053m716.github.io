@@ -11,7 +11,7 @@
     becomes a frame (sorted by name). Falls back to author.avatar when none exist.{% endcomment %}
     {% assign profile_pics = site.static_files | where_exp: "f", "f.path contains '/assets/images/profile/'" | where_exp: "f", "f.name contains '_circle.png'" | sort: "name" %}
     {% if profile_pics.size > 0 %}
-    <div class="profile-carousel" data-profile-carousel>
+    <div class="profile-carousel" data-profile-carousel role="button" tabindex="0" aria-label="Profile photos: activate to flip to the next photo" title="Next photo">
       {% for pic in profile_pics %}
       <img src="{{ pic.path | prepend: base_path }}" alt="{{ author.name }}" class="author__avatar profile-carousel__img{% if forloop.first %} is-active{% endif %}"{% unless forloop.first %} aria-hidden="true"{% endunless %}>
       {% endfor %}

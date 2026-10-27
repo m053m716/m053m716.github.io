@@ -1,8 +1,16 @@
-/* ── Profile-pic swivel carousel (assets/images/profile/*_circle.png) ── */
+/* ── Profile-pic carousel (assets/images/profile/*_circle.png) ──
+   No timer: hovering gives the active photo a small tilt as a hint,
+   clicking (or Enter/Space) swivels to the next photo. */
 .profile-carousel {
   position: relative;
   aspect-ratio: 1 / 1;
   perspective: 700px;
+  cursor: pointer;
+}
+.profile-carousel:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+  border-radius: 50%;
 }
 .profile-carousel__img {
   position: absolute;
@@ -19,6 +27,9 @@
   opacity: 1;
   pointer-events: auto;
 }
+.profile-carousel:hover .profile-carousel__img.is-active {
+  transform: rotateY(-16deg) scale(1.04);
+}
 .profile-carousel__img.swivel-out {
   transform: rotateY(88deg);
   opacity: 0.1;
@@ -33,4 +44,5 @@
 @media (prefers-reduced-motion: reduce) {
   .profile-carousel__img { transition: none; }
   .profile-carousel__img.swivel-in { animation: none; }
+  .profile-carousel:hover .profile-carousel__img.is-active { transform: none; }
 }
