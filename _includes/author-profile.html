@@ -7,7 +7,16 @@
 <div itemscope itemtype="http://schema.org/Person">
 
   <div class="author__avatar">
-    {% if author.avatar contains "://" %}
+    {% comment %}Profile-pic carousel: every *_circle.png in assets/images/profile/
+    becomes a frame (sorted by name). Falls back to author.avatar when none exist.{% endcomment %}
+    {% assign profile_pics = site.static_files | where_exp: "f", "f.path contains '/assets/images/profile/'" | where_exp: "f", "f.name contains '_circle.png'" | sort: "name" %}
+    {% if profile_pics.size > 0 %}
+    <div class="profile-carousel" data-profile-carousel>
+      {% for pic in profile_pics %}
+      <img src="{{ pic.path | prepend: base_path }}" alt="{{ author.name }}" class="author__avatar profile-carousel__img{% if forloop.first %} is-active{% endif %}"{% unless forloop.first %} aria-hidden="true"{% endunless %}>
+      {% endfor %}
+    </div>
+    {% elsif author.avatar contains "://" %}
     	<img src="{{ author.avatar }}" alt="{{ author.name }}">
     {% else %}
     	<img src="{{ author.avatar | prepend: "/images/" | prepend: base_path }}" class="author__avatar" alt="{{ author.name }}">
@@ -122,3 +131,75 @@
     </ul>
   </div>
 </div>
+
+<style>
+/* ── Profile-pic swivel carousel (assets/images/profile/*_circle.png) ── */
+.profile-carousel {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  perspective: 700px;
+}
+.profile-carousel__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.38s ease, opacity 0.38s ease;
+}
+.profile-carousel__img.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.profile-carousel__img.swivel-out {
+  transform: rotateY(88deg);
+  opacity: 0.1;
+}
+.profile-carousel__img.swivel-in {
+  animation: profileSwivelIn 0.38s ease;
+}
+@keyframes profileSwivelIn {
+  from { transform: rotateY(-88deg); opacity: 0.1; }
+  to   { transform: rotateY(0deg);   opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .profile-carousel__img { transition: none; }
+  .profile-carousel__img.swivel-in { animation: none; }
+}
+</style>
+<script>
+(function () {
+  var wrap = document.querySelector('[data-profile-carousel]');
+  if (!wrap) return;
+  var imgs = Array.prototype.slice.call(wrap.querySelectorAll('.profile-carousel__img'));
+  if (imgs.length < 2) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var idx = 0, timer = null, ANIM = 380, PERIOD = 4200;
+  function step() {
+    var cur = imgs[idx];
+    var nxt = imgs[(idx + 1) % imgs.length];
+    cur.classList.add('swivel-out');
+    setTimeout(function () {
+      cur.classList.remove('is-active', 'swivel-out');
+      cur.setAttribute('aria-hidden', 'true');
+      nxt.classList.add('is-active', 'swivel-in');
+      nxt.removeAttribute('aria-hidden');
+      setTimeout(function () { nxt.classList.remove('swivel-in'); }, ANIM);
+      idx = (idx + 1) % imgs.length;
+    }, ANIM);
+  }
+  function start() { if (!timer) timer = setInterval(step, PERIOD); }
+  function stop() { if (timer) { clearInterval(timer); timer = null; } }
+  wrap.addEventListener('mouseenter', stop);
+  wrap.addEventListener('mouseleave', start);
+  wrap.addEventListener('focusin', stop);
+  wrap.addEventListener('focusout', start);
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) { stop(); } else { start(); }
+  });
+  start();
+})();
+</script>

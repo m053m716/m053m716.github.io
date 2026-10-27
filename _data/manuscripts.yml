@@ -1,5 +1,7 @@
 # Metadata for WIP manuscript PDFs stored in /files/Murphy___YYYY-MM-DD___*.pdf
 # The `file` key must match the PDF basename (filename without extension).
+# NOTE (2026-10-27): the Rumaldo/Despradel sEMG entry was removed — that paper is now
+# listed in _publications (provisionally accepted at Science Robotics, bioRxiv 2026.01.09.698484).
 - file: "Murphy___2025-11-03___Motor_unit_inter_spike_interval_state_dependence_near_steady_state_firing"
   title: "Motor Unit Inter-Spike-Interval State-Dependence Near Steady-State Firing"
   featured: false
@@ -38,29 +40,6 @@
     versus the product of mean firing rate and minimum observed ISI—requiring only that
     firing rate is approximately constant within the epoch of interest.
   citation: "Murphy MD. Estimating Erlang-k Stage Index from Motor Unit Event Timings. 2025. Unpublished manuscript."
-
-- file: "Rumaldo et al - 2026-01-12 Pre-Print - Enabling Skilled HCI after Paralysis via a Wearable sEMG Interface"
-  title: "Enabling Skilled HCI after Paralysis via a Wearable sEMG Interface"
-  featured: true
-  summary: >
-    Most individuals with tetraplegia retain some myoelectric function in their forearms, 
-    which offers the possibility of using surface electromyographic (sEMG) control for humancomputer interaction (HCI). 
-    We demonstrate the potential of this approach by showing that people with motor-complete (n=5) and 
-    motor-incomplete (n=2) tetraplegia can accurately control myoelectric activity in their forearm to 
-    perform discrete button-click and continuous positioning tasks. These control inputs were mapped to 
-    the firing rate of motor units detected by a wireless wristband sensor designed for everyday use. 
-    Participants completed four testing sessions to assess their speed and accuracy. 
-    Motor units that displayed a wide dynamic range in their firing rate performed best during 
-    tasks requiring continuous, single-axis control. Interestingly, the level of
-    impairment did not affect performance on the clicking and 1D cursor control tasks. However,
-    those with motor-incomplete injuries showed greater independent control over two motor units
-    than participants with motor-complete injuries, who exhibited stronger coupling between units.
-    Participants also confirmed the practical utility of the device, successfully placing and removing
-    the sEMG wristband on their own and consistently rating it as comfortable and easy to manage.
-    These findings are significant because they offer the first demonstration of motor unit-based
-    control in individuals with cervical spinal cord injury (SCI) using a fully wearable wristband
-    interface, highlighting the feasibility of moving these systems out of the lab and into daily life.
-  citation: "Rumaldo et al. Enabling Skilled HCI after Paralysis via a Wearable sEMG Interface. 2026. Pre-print available at https://www.biorxiv.org/content/10.1101/2026.01.12.123456v1."
 
 - file: "Murphy___2026-05-26___Past_the_Point_of_Fitts"
   title: "Past the Point of Fitts: A discussion of better throughput estimators for digital interaction"
