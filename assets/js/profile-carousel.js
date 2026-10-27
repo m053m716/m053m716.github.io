@@ -5,6 +5,14 @@
   if (imgs.length < 2) return;
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var idx = 0, ANIM = 380, busy = false;
+  /* Random starting photo on each page load. */
+  var start = Math.floor(Math.random() * imgs.length);
+  imgs.forEach(function (img, i) {
+    var on = i === start;
+    img.classList.toggle('is-active', on);
+    if (on) { img.removeAttribute('aria-hidden'); } else { img.setAttribute('aria-hidden', 'true'); }
+  });
+  idx = start;
   function flip() {
     if (busy) return;
     var cur = imgs[idx];
