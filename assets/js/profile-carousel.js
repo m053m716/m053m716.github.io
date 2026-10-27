@@ -36,6 +36,25 @@
       idx = (idx + 1) % imgs.length;
     }, ANIM);
   }
+  /* Pointer-tracking tilt: the photo leans toward the pointer, up to
+     +/-16 deg on each axis, based on the pointer's position relative
+     to the circle's center. Applied to the wrapper so it never
+     interferes with the flip animation on the images themselves. */
+  var MAX_TILT = 16;
+  if (!reduce && window.PointerEvent) {
+    wrap.addEventListener('pointermove', function (e) {
+      var r = wrap.getBoundingClientRect();
+      if (!r.width || !r.height) return;
+      var px = (e.clientX - r.left) / r.width - 0.5;
+      var py = (e.clientY - r.top) / r.height - 0.5;
+      var ry = (px * 2 * MAX_TILT).toFixed(2);
+      var rx = (-py * 2 * MAX_TILT).toFixed(2);
+      wrap.style.transform = 'rotateX(' + rx + 'deg) rotateY(' + ry + 'deg) scale(1.04)';
+    });
+    wrap.addEventListener('pointerleave', function () {
+      wrap.style.transform = '';
+    });
+  }
   wrap.addEventListener('click', flip);
   wrap.addEventListener('keydown', function (e) {
     if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
