@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 340" role="img" aria-label="High-channel-count recordings from motor cortex and thalamus with slow-wave forecasting">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d2018"/><stop offset="1" stop-color="#123528"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="340" fill="url(#bg)"/>
+  <rect width="800" height="340" fill="url(#grid)"/>
+  <!-- cortex blob -->
+  <path d="M150 70 C 210 30, 320 34, 358 84 C 396 134, 380 196, 322 222 C 262 249, 168 240, 132 192 C 98 146, 96 104, 150 70 Z" fill="#173d2b" stroke="#4ade80" stroke-width="2"/>
+  <!-- electrode grid on cortex -->
+  <g fill="#4ade80">
+    <circle cx="200" cy="100" r="5"/><circle cx="240" cy="88" r="5"/><circle cx="280" cy="92" r="5"/><circle cx="316" cy="106" r="5"/>
+    <circle cx="196" cy="140" r="5"/><circle cx="238" cy="130" r="5"/><circle cx="278" cy="132" r="5"/><circle cx="314" cy="146" r="5"/>
+    <circle cx="204" cy="180" r="5"/><circle cx="244" cy="172" r="5"/><circle cx="282" cy="174" r="5"/>
+  </g>
+  <g stroke="#4ade80" stroke-opacity="0.35">
+    <line x1="200" y1="100" x2="238" y2="130"/><line x1="240" y1="88" x2="278" y2="132"/><line x1="280" y1="92" x2="282" y2="174"/><line x1="196" y1="140" x2="244" y2="172"/>
+  </g>
+  <!-- thalamus node -->
+  <ellipse cx="252" cy="282" rx="46" ry="20" fill="#173d2b" stroke="#a3e635" stroke-width="2"/>
+  <line x1="252" y1="222" x2="252" y2="260" stroke="#a3e635" stroke-width="2" stroke-dasharray="5 5"/>
+  <text x="252" y="322" text-anchor="middle" font-family="Verdana, sans-serif" font-size="13" fill="#bef264" letter-spacing="2">THALAMUS</text>
+  <text x="252" y="52" text-anchor="middle" font-family="Verdana, sans-serif" font-size="13" fill="#86efac" letter-spacing="2">MOTOR CORTEX</text>
+  <!-- slow wave + forecast -->
+  <path d="M430 130 C 470 70, 510 70, 550 130 C 590 190, 630 190, 670 130" fill="none" stroke="#4ade80" stroke-width="3"/>
+  <path d="M430 130 C 470 70, 510 70, 550 130 C 590 190, 630 190, 670 130" fill="none" stroke="#4ade80" stroke-opacity="0.15" stroke-width="9"/>
+  <path d="M670 130 C 700 84, 724 88, 748 118" fill="none" stroke="#fbbf24" stroke-width="3" stroke-dasharray="7 6"/>
+  <circle cx="670" cy="130" r="5" fill="#fbbf24"/>
+  <text x="700" y="70" text-anchor="middle" font-family="Verdana, sans-serif" font-size="13" fill="#fcd34d" letter-spacing="2">FORECAST</text>
+  <!-- channel ticks -->
+  <g fill="#4ade80" fill-opacity="0.65">
+    <rect x="440" y="238" width="4" height="26"/><rect x="456" y="230" width="4" height="34"/><rect x="472" y="242" width="4" height="22"/><rect x="488" y="226" width="4" height="38"/><rect x="504" y="236" width="4" height="28"/><rect x="520" y="244" width="4" height="20"/><rect x="536" y="232" width="4" height="32"/><rect x="552" y="240" width="4" height="24"/><rect x="568" y="228" width="4" height="36"/><rect x="584" y="238" width="4" height="26"/><rect x="600" y="244" width="4" height="20"/><rect x="616" y="234" width="4" height="30"/><rect x="632" y="240" width="4" height="24"/><rect x="648" y="230" width="4" height="34"/><rect x="664" y="242" width="4" height="22"/><rect x="680" y="236" width="4" height="28"/>
+  </g>
+  <text x="566" y="298" text-anchor="middle" font-family="Verdana, sans-serif" font-size="15" fill="#9fd8b4" letter-spacing="2">256 SYNCHRONIZED CHANNELS</text>
+</svg>

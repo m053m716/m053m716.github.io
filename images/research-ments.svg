@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 340" role="img" aria-label="Magnetoelectric nanoparticles transducing magnetic fields at a neuron">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1c1030"/><stop offset="1" stop-color="#2a1a4a"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="340" fill="url(#bg)"/>
+  <rect width="800" height="340" fill="url(#grid)"/>
+  <!-- magnetic wave arcs from left -->
+  <g fill="none" stroke="#a78bfa" stroke-width="3">
+    <path d="M58 96 A 90 90 0 0 1 58 244" stroke-opacity="0.9"/>
+    <path d="M96 76 A 128 128 0 0 1 96 264" stroke-opacity="0.6"/>
+    <path d="M134 56 A 166 166 0 0 1 134 284" stroke-opacity="0.35"/>
+  </g>
+  <text x="84" y="316" font-family="Verdana, sans-serif" font-size="13" fill="#c4b5fd" letter-spacing="2">MAGNETIC FIELD</text>
+  <!-- neuron -->
+  <g stroke="#c4b5fd" stroke-width="3" fill="none" stroke-linecap="round">
+    <path d="M470 150 C 440 120, 420 108, 396 100"/>
+    <path d="M478 138 C 462 108, 462 88, 470 62"/>
+    <path d="M492 136 C 500 106, 516 90, 540 78"/>
+    <path d="M486 190 C 520 210, 548 214, 580 210"/>
+    <path d="M470 196 C 448 224, 440 244, 442 268"/>
+    <path d="M496 168 C 540 168, 590 172, 640 178 C 680 182, 712 180, 744 172"/>
+  </g>
+  <circle cx="482" cy="166" r="34" fill="#3b2566" stroke="#a78bfa" stroke-width="3"/>
+  <circle cx="482" cy="166" r="12" fill="#a78bfa"/>
+  <!-- action potential on axon -->
+  <polyline points="600,168 622,168 630,140 640,196 648,172 700,174" fill="none" stroke="#f472b6" stroke-width="3" stroke-linejoin="round"/>
+  <!-- nanoparticles -->
+  <g fill="#f472b6">
+    <path d="M356 130 l10 -12 l10 12 l-10 12 z"/><path d="M392 196 l9 -11 l9 11 l-9 11 z"/><path d="M330 210 l8 -10 l8 10 l-8 10 z"/>
+    <path d="M560 96 l9 -11 l9 11 l-9 11 z"/><path d="M596 240 l8 -10 l8 10 l-8 10 z"/><path d="M420 84 l8 -10 l8 10 l-8 10 z"/>
+  </g>
+  <g fill="#a78bfa">
+    <circle cx="372" cy="238" r="5"/><circle cx="540" cy="150" r="5"/><circle cx="636" cy="106" r="5"/><circle cx="300" cy="160" r="5"/><circle cx="668" cy="238" r="5"/>
+  </g>
+  <!-- transduction spark at soma -->
+  <path d="M438 148 l14 4 l-10 8 l16 2 l-20 16 l4 -14 l-12 -2 l14 -6 z" fill="#fde68a"/>
+  <text x="560" y="316" text-anchor="middle" font-family="Verdana, sans-serif" font-size="15" fill="#d8c9f5" letter-spacing="2">NANOPARTICLE TRANSDUCERS</text>
+</svg>
