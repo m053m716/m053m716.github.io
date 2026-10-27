@@ -1,0 +1,2 @@
+# Raw Profile Images #
+Content of this repo need to first be properly cropped using a "circle cutout" with the correct dimensions/aspect-ratio. Each file within this folder should have a matched "*_circle.png" above it. Files not needing the cropping transformation can exist without _raw matched. 
