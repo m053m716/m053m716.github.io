@@ -1,0 +1,22 @@
+/* ── Research banner backdrop (homepage About card) ──
+   A random wide image from assets/images/banner/ sits under
+   "About My Research" and fades down into the blurb text.
+   The random pick happens in assets/js/home-banner.js. */
+.research-banner {
+  margin: 0.35rem 0 -1.6rem;
+}
+.research-banner__img {
+  display: block;
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  object-position: center 40%;
+  border-radius: 4px 4px 0 0;
+  -webkit-mask-image: linear-gradient(to bottom, #000 52%, transparent 98%);
+  mask-image: linear-gradient(to bottom, #000 52%, transparent 98%);
+}
+@media (max-width: 768px) {
+  .research-banner__img {
+    height: 180px;
+  }
+}

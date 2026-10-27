@@ -3,8 +3,9 @@ main:
   - title: "Publications"
     url: /publications/
 
-  - title: "Talks/Posters"
-    url: /talks/
+  # Hidden 2026-10-27 (page kept, link removed from nav):
+  # - title: "Talks/Posters"
+  #   url: /talks/
     
   - title: "Research"
     url: /research/

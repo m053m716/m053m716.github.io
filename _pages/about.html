@@ -185,9 +185,10 @@ redirect_from:
           Carnegie Mellon</a>. My work centers on deploying intuitive interfaces, with the goal of making complicated interactions less difficult.</p>
       <hr style="border-top: 3px dotted #bbb;width:33%;left:33%">
       <h3>About My Research</h3>
-      <a class="researcherid-badge" href="https://www.webofscience.com/wos/author/record/AAQ-4254-2021" target="_blank" rel="noopener noreferrer">
-        <img src="{{ base_path }}/assets/images/web-of-science-researcherid.png" alt="Web of Science ResearcherID profile">
-      </a>
+      {% assign banners = site.static_files | where_exp: "f", "f.path contains '/assets/images/banner/'" | where_exp: "f", "f.extname == '.jpg'" %}
+      <div class="research-banner" data-banners='[{% for f in banners %}"{{ f.path }}"{% unless forloop.last %},{% endunless %}{% endfor %}]' aria-hidden="true">
+        <img class="research-banner__img" src="{{ banners.first.path }}" alt="">
+      </div>
       <p>Recently, I have been building browser-based behavioral tasks, input-device utilities, and biophysical simulations
         that connect neural dynamics with embodied interaction. That includes <a href="https://fitts-task.nml.wtf" target="_blank" rel="noopener noreferrer">Fitts</a> and <a href="https://chr.nml.wtf" target="_blank" rel="noopener noreferrer">Click-Hold-Release</a> task batteries to assess HCI quality and reliability,
         the <a href="https://tablet.nml.wtf" target="_blank" rel="noopener noreferrer">TabletHID</a> app, <a href="https://about.fb.com/news/2026/05/meta-ai-wearables-changing-the-game-for-disabled-people/" target="_blank" rel="noopener noreferrer">wearable accessible EMG</a> workflows,
