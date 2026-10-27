@@ -2,7 +2,7 @@
 title: "Steerable non-invasive brain stimulation (pulsed TES)"
 collection: 'research'
 date: 2025-07-14
-excerpt: "Multi-channel pulsed transcranial electrical stimulation with electronic current steering — focusing non-invasive stimulation on cortical targets while keeping it tolerable (DARPA N3).<br/><img src='/images/research-tes.svg'>"
+excerpt: "Multi-channel pulsed transcranial electrical stimulation with electronic current steering — focusing non-invasive stimulation on cortical targets while keeping it tolerable (DARPA N3).<br/><img alt='' src='/images/research-tes.svg'>"
 tags:
   - TES
   - brain stimulation

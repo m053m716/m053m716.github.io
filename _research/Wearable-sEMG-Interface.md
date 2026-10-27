@@ -2,7 +2,7 @@
 title: "Wearable sEMG interfaces for computer interaction after paralysis"
 collection: 'research'
 date: 2026-01-09
-excerpt: "Wearable surface-EMG interfaces that turn residual motor-unit activity after cervical spinal cord injury into skilled computer interaction — leading CMU's collaboration with Meta Reality Labs on the Meta Neural Band.<br/><img src='/images/research-semg.svg'>"
+excerpt: "Wearable surface-EMG interfaces that turn residual motor-unit activity after cervical spinal cord injury into skilled computer interaction — leading CMU's collaboration with Meta Reality Labs on the Meta Neural Band.<br/><img alt='' src='/images/research-semg.svg'>"
 tags:
   - sEMG
   - motor units

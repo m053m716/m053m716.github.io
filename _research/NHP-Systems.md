@@ -2,7 +2,7 @@
 title: "Large-scale NHP recording and stimulation systems"
 collection: 'research'
 date: 2026-01-01
-excerpt: "Awake, behaving non-human primate systems built at CMU: up to 256 synchronized channels across motor cortex and thalamus, high-density EMG, and stimulation interfaces for dissecting sensorimotor circuits.<br/><img src='/images/research-nhp.svg'>"
+excerpt: "Awake, behaving non-human primate systems built at CMU: up to 256 synchronized channels across motor cortex and thalamus, high-density EMG, and stimulation interfaces for dissecting sensorimotor circuits.<br/><img alt='' src='/images/research-nhp.svg'>"
 tags:
   - nonhuman primate
   - electrophysiology

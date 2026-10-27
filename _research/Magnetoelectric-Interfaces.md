@@ -2,7 +2,7 @@
 title: "Magnetoelectric neural interfaces"
 collection: 'research'
 date: 2023-05-15
-excerpt: "Wireless neural interfaces based on magnetoelectric nanoparticles — and the careful experiments needed to tell real evoked responses from stimulation artifacts (DARPA N3).<br/><img src='/images/research-ments.svg'>"
+excerpt: "Wireless neural interfaces based on magnetoelectric nanoparticles — and the careful experiments needed to tell real evoked responses from stimulation artifacts (DARPA N3).<br/><img alt='' src='/images/research-ments.svg'>"
 tags:
   - magnetoelectric
   - nanoparticles
