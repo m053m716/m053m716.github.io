@@ -28,7 +28,7 @@
   pointer-events: auto;
 }
 .profile-carousel:hover .profile-carousel__img.is-active {
-  transform: rotateY(16deg) scale(1.04);
+  transform: rotateY(-16deg) scale(1.04);
 }
 .profile-carousel__img.swivel-out {
   transform: rotateY(88deg);
